@@ -82,7 +82,7 @@ DATABASES = {
 CAPTCHA_PRIVATE_KEY = '6LeIrcMSAAAAAF_F3yhg0AyO65M5bpj4Kb4OW9tC'
 EMAIL_HOST = "mail.google.com"
 EMAIL_SENDER = "john.bragato@bluefly.com"
-SERVER_PUBLIC_ADDRESS = '127.0.0.1:8000'
+SERVER_PUBLIC_ADDRESS = '127.0.0.1:10000'
 
 DEMO_STRING="Development Demo" 
 
@@ -195,7 +195,7 @@ STATICFILES_FINDERS = (
 #import ldap
 #from django_auth_ldap.config import LDAPSearch
 #
-#AUTH_LDAP_SERVER_URI = "ldap://ldapcluster.crs4.it"
+#AUTH_LDAP_SERVER_URI = "ldap://ldapcluster.relic7.org"
 #AUTH_LDAP_BIND_PASSWORD = ""
 #AUTH_LDAP_USER_SEARCH = LDAPSearch("dc=crs4",ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
 #AUTH_LDAP_USER_ATTR_MAP = {

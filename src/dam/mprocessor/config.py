@@ -31,8 +31,10 @@ class Configurator(SafeConfigParser, object):
         """Returns the list of configuration files, first those called mprocessor.cfg,
            then other *.cfg files"""
         files = []
-        mainfile = os.path.join(dirname, 'mprocessor.cfg')
-        if os.path.exists(mainfile):
+        dirname = os.path.dirname(os.path.abspath(__file__))
+	mainfile = os.path.join(dirname, 'mprocessor.cfg')
+        
+	if os.path.exists(mainfile):
             files.append(mainfile)
         others = [os.path.join(dirname, x) for x in os.listdir(dirname) 
                         if x.endswith('.cfg') and x != 'mprocessor.cfg']

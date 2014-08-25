@@ -3,7 +3,7 @@ import os
 import datetime
 import settings
 
-setup_environ(settings)
+os.environ['DJANGO_SETTINGS_MODULE'] = 'dam.settings'
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 

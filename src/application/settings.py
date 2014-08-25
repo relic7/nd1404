@@ -6,8 +6,8 @@ TEMPLATE_DEBUG = DEBUG
 import os.path, os
 import sys
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
-
-NOTREDAM_ADDRESS = '127.0.0.1:8000'
+@relic7.org
+NOTREDAM_ADDRESS = '127.0.0.1:10000'
 MAIN_WORKSPACE_ID = 1
 SECRET = 'ffbae16973db789f74b3d84494f133d4dcb34267'
 API_KEY = 'c3dfbc0331175f01f6464683c7ecce05c7bad60f'
@@ -16,15 +16,15 @@ ORIGINAL_VARIANTS={'image':1,  'video':10,  'audio': 6,  'doc':14}
 TAGS_NODE_ID = 18
 
 ADMINS = (
-    # ('Your Name', 'your_email@domain.com'),
+    ('johnb','john.bragato@gmail.com')# ('Your Name', 'your_email@domain.com'),
 )
 
 MANAGERS = ADMINS
 
-DATABASE_ENGINE = 'sqlite3'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = 'application.db'             # Or path to database file if using sqlite3.
-DATABASE_USER = ''             # Not used with sqlite3.
-DATABASE_PASSWORD = ''         # Not used with sqlite3.
+DATABASE_ENGINE = 'django.db.backends.mysql'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+DATABASE_NAME = 'dam'             # Or path to database file if using sqlite3.
+DATABASE_USER = 'root'             # Not used with sqlite3.
+DATABASE_PASSWORD = 'mysql'         # Not used with sqlite3.
 DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
 DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
 
@@ -33,7 +33,7 @@ DATABASE_PORT = ''             # Set to empty string for default. Not used with 
 # although not all choices may be available on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'America/New_York'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -60,7 +60,7 @@ MEDIA_URL = ''
 ADMIN_MEDIA_PREFIX = '/media/'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'xfxc_y%7lptikl@s$py0!9r$wv+y!6^s!==fipp$wep#jh8n3w'
+SECRET_KEY = 'xfxc_y%7lptikl@s$py0!r$Q2v@y!6^s!==fipp$wep#jh8n3w'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (

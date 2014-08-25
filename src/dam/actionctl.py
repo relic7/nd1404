@@ -6,7 +6,7 @@ from pprint import pprint
 
 from django.core.management import setup_environ
 import settings
-setup_environ(settings)
+os.environ['DJANGO_SETTINGS_MODULE'] = 'dam.settings'
 from django.db.models.loading import get_models
 loaded_models = get_models()
 

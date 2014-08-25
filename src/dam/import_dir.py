@@ -9,9 +9,10 @@ Typical usage:
 
 python import_dir.py /home/user/import_dir/ -u admin -w 1 -r
 """
-from django.core.management import setup_environ
+import os
+# from django.core.management import setup_environ
 import settings
-setup_environ(settings)
+os.environ['DJANGO_SETTINGS_MODULE'] = 'dam.settings'
 from django.db.models.loading import get_models
 get_models()
 from django.contrib.auth import authenticate

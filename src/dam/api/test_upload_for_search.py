@@ -2,7 +2,7 @@ import os
 from django.core.management import setup_environ
 from django.utils import simplejson
 import dam.settings as settings
-setup_environ(settings)
+os.environ['DJANGO_SETTINGS_MODULE'] = 'dam.settings'
 from django.db.models.loading import get_apps
 get_apps() 
 

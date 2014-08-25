@@ -1,8 +1,9 @@
 from django.test import TestCase
-from django.core.management import setup_environ
+#from django.core.management import setup_environ
+import os
 from django.utils import simplejson as json
 import dam.settings as settings
-setup_environ(settings)
+os.environ['DJANGO_SETTINGS_MODULE'] = 'dam.settings'
 from django.db.models.loading import get_apps
 get_apps() 
 
@@ -133,7 +134,7 @@ class MultiPurposeTestCase(TestCase):
         8 - remove ws_user_test_1
         """
         import os.path
-        #params = {'username': 'user_test_1',  'email': 'u_test1@crs4.it',  'password': 'sha1$d345c$3861b4f1caa14a266b1b8e53143121529a86a272'}
+        #params = {'username': 'user_test_1',  'email': 'u_test1@relic7.org',  'password': 'sha1$d345c$3861b4f1caa14a266b1b8e53143121529a86a272'}
         #params = self.get_final_parameters(params)
         #response = self.client.post('/api/add_user/', params)        
         #json_resp = json.loads(response.content)

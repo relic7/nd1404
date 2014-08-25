@@ -3,7 +3,7 @@ Source: gst-watermarkplugin
 Binary: gst-watermarkplugin
 Architecture: any
 Version: 0.20.0.1
-Maintainer: Alceste Scalas <Alceste Scalas <alceste@crs4.it>>
+Maintainer: Alceste Scalas <Alceste Scalas <alceste@relic7.org>>
 Homepage: http://notredam.org/
 Standards-Version: 3.9.2
 Build-Depends: debhelper (>= 8.0.0), autotools-dev

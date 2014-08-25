@@ -23,7 +23,7 @@
 #########################################################################
 
 import os
-import sys
+import sys,settings
 
 # Redirect standard output to standard error
 # FIXME: mostly necessary for dealing with 'print's scattered in the code base

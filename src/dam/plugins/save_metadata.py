@@ -15,10 +15,10 @@
 #    GNU General Public License for more details.
 #
 #########################################################################
-
-from django.core.management import setup_environ
+import os
+# from django.core.management import setup_environ
 import dam.settings as settings
-setup_environ(settings)
+os.environ['DJANGO_SETTINGS_MODULE'] = 'dam.settings'
 from django.db.models.loading import get_models
 get_models()
 

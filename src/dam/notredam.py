@@ -7,7 +7,7 @@ Arguments:
                 --runserver: start the django development server. Port and address can be passed with the option --address
             Usage:
                 python notredam.py run
-                python notredam.py --runserver run (run the development server on 127.0.0.1:8000)
+                python notredam.py --runserver run (run the development server on 127.0.0.1:10000)
                 python notredam.py --runserver --address=10000 run (run the development server on 127.0.0.1:10000)
                 python notredam.py --runserver --address=0.0.0.0:10000 run (run the development server on all interface listening on port 10000)
         

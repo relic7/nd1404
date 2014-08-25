@@ -1,5 +1,5 @@
 /* MediaDart, Copyright (C) 2006,2009 CRS4.
- * All rights reserved.  Email: mediadart@crs4.it   Web: www.mediadart.org
+ * All rights reserved.  Email: mediadart@relic7.org   Web: www.mediadart.org
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of:

@@ -1,6 +1,9 @@
+#!/usr/bin/env python
+
+import os
 from django.core.management import setup_environ
 from dam import settings
-setup_environ(settings)
+os.environ['DJANGO_SETTINGS_MODULE'] = 'dam.settings'
 
 
 from dam.variants.models import *

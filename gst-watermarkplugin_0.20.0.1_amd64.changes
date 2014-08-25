@@ -6,8 +6,8 @@ Architecture: source amd64
 Version: 0.20.0.1
 Distribution: unstable
 Urgency: low
-Maintainer: Alceste Scalas <Alceste Scalas <alceste@crs4.it>>
-Changed-By: Alceste Scalas <Alceste Scalas <alceste@crs4.it>>
+Maintainer: Alceste Scalas <Alceste Scalas <alceste@relic7.org>>
+Changed-By: Alceste Scalas <Alceste Scalas <alceste@relic7.org>>
 Description: 
  gst-watermarkplugin - GST watermarking plugin, used by NotreDAM
 Changes: 
