@@ -3,4 +3,11 @@
 *.git/
 .git/
 *.pyc
+.idea/
+*.idea
+.idea/
+.Python
+bin/
+include/
+lib/
 
