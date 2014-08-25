@@ -1,3 +1,4 @@
+.DS_Store
 .hg/
 *.hg/
 *.git/
@@ -10,4 +11,5 @@
 bin/
 include/
 lib/
+share/
 

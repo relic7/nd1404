@@ -50,38 +50,14 @@ dir_log = os.path.join(INSTALLATIONPATH, 'log')
 
 
 
-# Database
-# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dam_db',
-        'USER': 'root',
-        'PASSWORD': 'mysql',
-        # 'HOST': '127.0.0.1',
-        # 'PORT': '3301',
-        #'OPTIONS': {
-        #    'init_command': 'SET storage_engine=InnoDB',
-        #    'charset' : 'utf8',
-        #    'use_unicode' : True,
-        #},
-        #'TEST_CHARSET': 'utf8',
-        #'TEST_COLLATION': 'utf8_general_ci',
-    },
-    # 'slave': {
-    #     ...
-    # },
-}
 
 
 #if DATABASES['default']['ENGINE'] == 'sqlite3':
 #    DATABASES['default']['NAME'] = os.path.join(ROOT_PATH,  DATABASE_NAME)
 
-
-
 CAPTCHA_PRIVATE_KEY = '6LeIrcMSAAAAAF_F3yhg0AyO65M5bpj4Kb4OW9tC'
-EMAIL_HOST = "mail.google.com"
-EMAIL_SENDER = "john.bragato@bluefly.com"
+EMAIL_HOST = "mail.gmail.com"
+EMAIL_SENDER = "john.bragato@gmail.com"
 SERVER_PUBLIC_ADDRESS = '127.0.0.1:8000'
 
 DEMO_STRING="Development Demo" 
@@ -90,7 +66,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-	# ('johnb', 'john.bragato@gmail.com'),
+	('johnb', 'john.bragato@gmail.com'), # ('Your Name', 'your_email@domain.com'),
 )
 
 MANAGERS = ADMINS
@@ -104,8 +80,8 @@ MANAGERS = ADMINS
 # although not all choices may be available on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-#TIME_ZONE = 'America/Chicago'
 TIME_ZONE = 'America/New_York'
+#TIME_ZONE = 'Europe/Rome'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -132,28 +108,14 @@ MEDIA_URL = ''
 ADMIN_MEDIA_PREFIX = '/media/'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '8w+8&332v83)459&4X124cvb(3w=2mz*%af&ele832zf=g@_7+'
+SECRET_KEY = '8w+8&332v83)451&4n124cvb*3w=2mz*%af&ele832zf=g@_7+'
 
 # List of callables that know how to import templates from various sources.
-#TEMPLATE_LOADERS = (
-#	'django.template.loaders.filesystem.load_template_source',
-#	'django.template.loaders.app_directories.load_template_source',
+TEMPLATE_LOADERS = (
+	'django.template.loaders.filesystem.load_template_source',
+	'django.template.loaders.app_directories.load_template_source',
 #	 'django.template.loaders.eggs.load_template_source',
-#)
-
-if DEBUG:
-    TEMPLATE_LOADERS = [
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',      
-    ]
-else:
-    TEMPLATE_LOADERS = [
-        ('django.template.loaders.cached.Loader',(
-            'django.template.loaders.filesystem.Loader',
-            'django.template.loaders.app_directories.Loader',
-            )),
-    ]
-
+)
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -215,7 +177,7 @@ TEMPLATE_DIRS = (
 	os.path.join(ROOT_PATH, 'templates'),
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
+TEMPLATE_CONTEXT_PROCESSORS = ("django.core.context_processors.auth",
 "django.core.context_processors.debug",
 "django.core.context_processors.i18n",
 "django.core.context_processors.media", "django.core.context_processors.request")
@@ -227,7 +189,7 @@ INSTALLED_APPS = (
 	'django.contrib.sites',
 	'django.contrib.admin', 
 	'dam.core.dam_repository',
-        'dam.scripts',
+    'dam.scripts',
 	'dam.repository',
 	'dam.treeview',
 	'dam.core.dam_metadata',
@@ -244,7 +206,7 @@ INSTALLED_APPS = (
 	'dam.basket',
 	'dam.upload',
 	'dam.appearance',
-        'dam.mprocessor',
+    'dam.mprocessor',
         'dam.kb',
         'south'
 )
