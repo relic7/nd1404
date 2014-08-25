@@ -1,0 +1,10 @@
+Package: gst-watermarkplugin
+Version: 0.20.0.1
+Architecture: amd64
+Maintainer: Alceste Scalas <Alceste Scalas <alceste@crs4.it>>
+Installed-Size: 62
+Depends: libc6 (>= 2.3.4), libglib2.0-0 (>= 2.14.0), libgstreamer0.10-0 (>= 0.10.14), libsdl-image1.2 (>= 1.2.10), libsdl1.2debian (>= 1.2.11)
+Section: video
+Priority: extra
+Homepage: http://notredam.org/
+Description: GST watermarking plugin, used by NotreDAM
