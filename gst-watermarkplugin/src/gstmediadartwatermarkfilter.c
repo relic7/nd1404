@@ -1,7 +1,7 @@
 
 /*
 # MediaDart, Copyright (C) 2006,2008 CRS4.
-# All rights reserved.  Email: mediadart@relic7.org   Web: www.mediadart.org
+# All rights reserved.  Email: mediadart@crs4.it   Web: www.mediadart.org
 #
 # This library is free software; you can redistribute it and/or
 # modify it under the terms of:
@@ -98,7 +98,7 @@ gst_mediadartwatermarkfilter_base_init (gpointer gclass)
     "Video Watermark Plugin",
     "Mediadart Filters",
     "Video Watermark Element",
-    "Francesco Cabras <paneb@relic7.org>"
+    "Francesco Cabras <paneb@crs4.it>"
   };
   GstElementClass *element_class = GST_ELEMENT_CLASS (gclass);
 

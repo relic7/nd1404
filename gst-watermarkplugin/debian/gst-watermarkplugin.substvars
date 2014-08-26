@@ -1,2 +1,0 @@
-shlibs:Depends=libc6 (>= 2.3.4), libglib2.0-0 (>= 2.14.0), libgstreamer0.10-0 (>= 0.10.14), libsdl-image1.2 (>= 1.2.10), libsdl1.2debian (>= 1.2.11)
-misc:Depends=
