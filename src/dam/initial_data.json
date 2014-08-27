@@ -1442,7 +1442,6 @@
             "is_staff": 1,
             "last_login": "2008-11-12 10:17:23",
             "groups": [],
-            //"userbf38d9c2055f754916dd_permissions": [],
             "user_permissions": [],
             "password": "sha1$59746$2fe625adf7fbdd93d017",
             "email": "john.bragato@gmail.com",
