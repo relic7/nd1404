@@ -21,7 +21,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.template import RequestContext, Context, loader
 from django.http import HttpResponse, HttpResponseForbidden
-from django.views.generic.simple import redirect_to
+# from django.views.generic.simple import redirect_to
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User
 from django.db.models import Q
