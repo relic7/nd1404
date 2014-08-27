@@ -30,7 +30,7 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE
 
-import libxmp
+from .import *
 import os
 
 """
@@ -69,12 +69,12 @@ def file_to_dict(file_path):
 	if not os.path.isfile( os.path.abspath( file_path ) ):
 		raise IOError, "No such file or directory: '%s'" % file_path	
 
-	xmpfile = libxmp.files.XMPFiles()
+	xmpfile = files.XMPFiles()
 	
 	try:
 		xmpfile.open_file( file_path, open_read=True )
 		xmp = xmpfile.get_xmp()
-	except libxmp.XMPError:
+	except XMPError:
 		return {}
 	
 	return object_to_dict(xmp)

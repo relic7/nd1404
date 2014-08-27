@@ -2,7 +2,7 @@
 Model-bound resource class.
 """
 from django import forms
-from django.conf.urls.defaults import patterns
+from django.conf.urls import patterns
 from django.http import *
 from django.forms import ModelForm, models
 from django.forms.util import ErrorDict

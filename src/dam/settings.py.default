@@ -57,7 +57,7 @@ dir_log = os.path.join(INSTALLATIONPATH, 'log')
 
 CAPTCHA_PRIVATE_KEY = '6LeIrcMSAAAAAF_F3yhg0AyO65M5bpj4Kb4OW9tC'
 EMAIL_HOST = "mail.relic7.org"
-EMAIL_SENDER = "dam@crs4.it"
+EMAIL_SENDER = "dam@gmsi.com"
 SERVER_PUBLIC_ADDRESS = '127.0.0.1:10000'
 
 DEMO_STRING="Development Demo" 

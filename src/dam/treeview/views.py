@@ -25,7 +25,7 @@ from django.http import HttpResponseForbidden
 from django.template import RequestContext, Context, loader
 from django.contrib.contenttypes.models import ContentType
 
-from dam.treeview.models import Node,  NodeMetadataAssociation,  SmartFolder,  SmartFolderNodeAssociation,  SiblingsWithSameLabel
+from models import Node,  NodeMetadataAssociation,  SmartFolder,  SmartFolderNodeAssociation,  SiblingsWithSameLabel
 from dam.core.dam_workspace.decorators import permission_required, membership_required
 from dam.metadata.models import MetadataProperty,  MetadataValue
 from dam.workspace.models import DAMWorkspace as Workspace

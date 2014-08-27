@@ -43,12 +43,12 @@ from dam.treeview.models import Node
 #from dam.batch_processor.models import MachineState, Machine, Action
 from dam.workspace.models import DAMWorkspace as Workspace, WorkspaceItem
 from dam.core.dam_workspace.decorators import permission_required
-from dam.upload.models import UploadURL
-from dam.upload.uploadhandler import StorageHandler
+from models import UploadURL
+from uploadhandler import StorageHandler
 from dam.eventmanager.models import EventRegistration
 from dam.preferences.views import get_metadata_default_language
 #from dam.mprocessor.models import MAction
-from md5sum import md5
+from dam.md5sum import md5
 from mprocessor.storage import Storage
 from urllib import unquote
 

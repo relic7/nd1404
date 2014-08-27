@@ -9,21 +9,19 @@ Typical usage:
 
 python import_dir.py /home/user/import_dir/ -u admin -w 1 -r
 """
-import os
-# from django.core.management import setup_environ
+import os,sys
 import settings
+sys.path.append(os.path.dirname(__file__))
+
 os.environ['DJANGO_SETTINGS_MODULE'] = 'dam.settings'
 from django.db.models.loading import get_models
 get_models()
 from django.contrib.auth import authenticate
-
-import os
 import getpass
-import sys
 
 from django.contrib.auth.models import User
-from dam.workspace.models import DAMWorkspace as Workspace
-from dam.upload.views import import_dir
+from workspace.models import DAMWorkspace as Workspace
+from upload.views import import_dir
 from optparse import OptionParser
 import time
 import logging

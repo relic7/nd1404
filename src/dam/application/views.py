@@ -28,20 +28,24 @@ from django.core.mail import send_mail
 from django.utils import simplejson
 from django.contrib.admin.views.decorators import staff_member_required
 
-from dam.repository.models import Item, _get_resource_url, Component
-from dam.workspace.models import DAMWorkspace as Workspace
-from dam.settings import EMAIL_SENDER, SERVER_PUBLIC_ADDRESS, CONFIRM_REGISTRATION
-from dam.application.forms import Registration
-from dam.application.models import VerificationUrl
-from dam.preferences.models import DAMComponentSetting
+from repository.models import Item, _get_resource_url, Component
+from workspace.models import DAMWorkspace as Workspace
+from settings import EMAIL_SENDER, SERVER_PUBLIC_ADDRESS, CONFIRM_REGISTRATION
+from forms import Registration
+from models import VerificationUrl, DAMComponentSetting
 
-from dam.core.dam_workspace.decorators import permission_required
+from core.dam_workspace.decorators import permission_required
 
 from mprocessor.storage import Storage
 
 import logging
 logger = logging.getLogger('dam')
 
+# from django.views.generic import RedirectView
+#
+# urlpatterns = patterns('',
+#     (r'^one/$', RedirectView.as_view(url='/another/')),
+# )
 
 NOTAVAILABLE = None
   
@@ -171,7 +175,7 @@ def registration(request):
                 url = VerificationUrl.objects.create(user = user).url
                 final_url = 'http://%s/confirm_user/%s/'%(SERVER_PUBLIC_ADDRESS , url)
                 logger.debug('final_url %s'%final_url)
-                send_mail('Registration confirmation', 'Hi %s,\nclick at this url %s \n to confirm your registration at DAM.'%(user.username, final_url), EMAIL_SENDER, [user.email], fail_silently=False)
+                send_mail('Registration confirmation', 'Hi %s,\nclick at this url %s \n to confirm your registration at '%(user.username, final_url), EMAIL_SENDER, [user.email], fail_silently=False)
                 resp['confirm_registration'] = True
                 
             else:

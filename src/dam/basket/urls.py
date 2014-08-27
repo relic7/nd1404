@@ -16,7 +16,7 @@
 #
 #########################################################################
 
-from django.conf.urls.defaults import *
+from django.conf.urls import *
 
 urlpatterns = patterns('',
     (r'^reload_item/', 'dam.basket.views.reload_item'), 

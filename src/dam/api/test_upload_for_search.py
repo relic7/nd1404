@@ -1,7 +1,7 @@
 import os
 from django.core.management import setup_environ
 from django.utils import simplejson
-import dam.settings as settings
+import settings as settings
 os.environ['DJANGO_SETTINGS_MODULE'] = 'dam.settings'
 from django.db.models.loading import get_apps
 get_apps() 
@@ -9,15 +9,15 @@ get_apps()
 
 from time import sleep
 
-from dam.api.utils import _get_final_parameters
+from api.utils import _get_final_parameters
 from django.test.client import Client
-from dam.api.models import *
-from dam.workspace.models import DAMWorkspace as Workspace
-from dam.repository.models import Item,  Component
-from dam.variants.models import Variant
+from api.models import *
+from workspace.models import DAMWorkspace as Workspace
+from repository.models import Item,  Component
+from variants.models import Variant
 
 
-from dam.core.dam_repository.models import Type
+from core.dam_repository.models import Type
 INPUT_FILE = os.path.join(settings.ROOT_PATH, 'api/muffin_small.jpeg')
 #INPUT_FILE = os.path.join(settings.ROOT_PATH, 'files/images/logo_blue.jpg')
 print INPUT_FILE

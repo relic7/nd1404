@@ -1,20 +1,20 @@
 from django.core.management import setup_environ
 from django.utils import simplejson
-import dam.settings as settings
+import settings as settings
 os.environ['DJANGO_SETTINGS_MODULE'] = 'dam.settings'
 from django.db.models.loading import get_apps
 get_apps() 
 
-from dam.api.utils import _get_final_parameters
+from api.utils import _get_final_parameters
 from django.test.client import Client
-from dam.api.models import *
-from dam.core.dam_workspace.models import WorkspacePermission, WorkspacePermissionAssociation
+from api.models import *
+from core.dam_workspace.models import WorkspacePermission, WorkspacePermissionAssociation
 
-from dam.workspace.models import DAMWorkspace as Workspace
-from dam.repository.models import Item,  Component
-from dam.variants.models import Variant
+from workspace.models import DAMWorkspace as Workspace
+from repository.models import Item,  Component
+from variants.models import Variant
 import os
-from dam.core.dam_repository.models import Type
+from core.dam_repository.models import Type
 import sys
 import unittest
 import hashlib

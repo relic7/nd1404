@@ -33,32 +33,32 @@ from django_restapi.responder import *
 from django.contrib.auth.models import Permission
 from decimal import *
 
-from dam.repository.models import Item,  Component, _get_resource_url, new_id
-from dam.core.dam_repository.models import Type
-from dam.core.dam_metadata.models import XMPStructure
-from dam.workspace.models import DAMWorkspace, WorkspaceItem
-from dam.core.dam_workspace.models import WorkspacePermissionAssociation, WorkspacePermission
-from dam.workflow.models import State, StateItemAssociation
-from dam.treeview.models import Node, NodeMetadataAssociation,  SmartFolder, SmartFolderNodeAssociation
-from dam.treeview.models import InvalidNode,  WrongWorkspace,  NotMovableNode,  NotEditableNode
-#from dam.variants.models import VariantAssociation,  Variant,  PresetPreferences,  Preset,  SourceVariant, ImagePreferences,  AudioPreferences,  VideoPreferences
-from dam.mprocessor.models import Pipeline 
-from dam.workspace.views import _add_items_to_ws, _search
-from dam.api.models import Secret,  Application
-from dam.metadata.models import MetadataValue,  MetadataProperty,  MetadataLanguage
-from dam.preferences.views import get_lang_pref
-from dam.kb.models import Object as KBObject
-from dam.upload.views import _upload_variant, _upload_resource_via_raw_post_data, _upload_resource_via_post
-from dam.workflow.views import _set_state 
-from dam.scripts.views import _edit_script, _get_scripts_info
-from dam.settings import SERVER_PUBLIC_ADDRESS
-from dam.plugins import extract_basic
+from repository.models import Item,  Component, _get_resource_url, new_id
+from core.dam_repository.models import Type
+from core.dam_metadata.models import XMPStructure
+from workspace.models import DAMWorkspace, WorkspaceItem
+from core.dam_workspace.models import WorkspacePermissionAssociation, WorkspacePermission
+from workflow.models import State, StateItemAssociation
+from treeview.models import Node, NodeMetadataAssociation,  SmartFolder, SmartFolderNodeAssociation
+from treeview.models import InvalidNode,  WrongWorkspace,  NotMovableNode,  NotEditableNode
+#from variants.models import VariantAssociation,  Variant,  PresetPreferences,  Preset,  SourceVariant, ImagePreferences,  AudioPreferences,  VideoPreferences
+from mprocessor.models import Pipeline
+from workspace.views import _add_items_to_ws, _search
+from models import Secret,  Application
+from metadata.models import MetadataValue,  MetadataProperty,  MetadataLanguage
+from preferences.views import get_lang_pref
+from kb.models import Object as KBObject
+from upload.views import _upload_variant, _upload_resource_via_raw_post_data, _upload_resource_via_post
+from workflow.views import _set_state
+from scripts.views import _edit_script, _get_scripts_info
+from settings import SERVER_PUBLIC_ADDRESS
+from plugins import extract_basic
 
-from dam.api.decorators import *
-from dam.api.exceptions import *
-from dam.workspace.forms import AdminWorkspaceForm
-from dam.variants.views import _edit_variant
-#~ from dam.upload.uploadhandler import StorageHandler
+from decorators import *
+from exceptions import *
+from workspace.forms import AdminWorkspaceForm
+from variants.views import _edit_variant
+#~ from upload.uploadhandler import StorageHandler
 from django.contrib.auth import authenticate,  login
 
 #from django.contrib.sessions.backends.db import SessionStore
@@ -530,7 +530,7 @@ class WorkspaceResource(ModResource):
                     }        
         """
 
-        from dam.preferences.models import UserSetting, SettingValue, DAMComponent, DAMComponentSetting
+        from preferences.models import UserSetting, SettingValue, DAMComponent, DAMComponentSetting
         
 
         user = request.POST.get('user_id')
@@ -2485,7 +2485,7 @@ class Auth(ModResource):
     @exception_handler
     def _login(self,  request):
         """
-        Allows to log in a user through api. It returns user_id and secret necessary to any other api call
+        Allows to log in a user through  It returns user_id and secret necessary to any other api call
         - method: POST
         - parameters:
             - user_name

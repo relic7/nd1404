@@ -20,7 +20,6 @@ from httplib import HTTPSConnection
 from urllib2 import HTTPSHandler
 
 import os
-import md5
 import hashlib,random
 import urllib2
 import urllib

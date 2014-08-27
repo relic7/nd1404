@@ -30,6 +30,7 @@ ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 
 sys.path.append(PYTHONPATH)
 sys.path.append(ROOT_PATH)
+sys.path.append(os.path.dirname(__file__))
 
 REMOVE_OLD_PROCESSES= True
 CONFIRM_REGISTRATION = True
@@ -215,10 +216,13 @@ TEMPLATE_DIRS = (
 	os.path.join(ROOT_PATH, 'templates'),
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
-"django.core.context_processors.debug",
-"django.core.context_processors.i18n",
-"django.core.context_processors.media", "django.core.context_processors.request")
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.request"
+)
 
 INSTALLED_APPS = (
 	'django.contrib.auth',
@@ -244,10 +248,17 @@ INSTALLED_APPS = (
 	'dam.basket',
 	'dam.upload',
 	'dam.appearance',
+<<<<<<< HEAD
         'dam.mprocessor',
         'dam.kb',
         'south',
         # 'django-debug-toolbar'
+=======
+    'dam.mprocessor',
+    'dam.kb',
+    'south',
+	'debug_toolbar',
+>>>>>>> b8cc793fed26b19c6b5cd960c403ffb555872a2a
 )
 
 # A sample logging configuration. The only tangible logging

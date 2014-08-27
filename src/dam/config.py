@@ -13,16 +13,16 @@ MD_CERT_PATH = os.path.join(os.getenv('HOME'), 'node00', 'crypto')
 #}
 
 #OLD GOOGLE_KEY="ABQIAAAASa-q3XL_xChhiMK0ZCLQDhTpH3CbXHjuCVmaTc5MkkU4wO1RRhSAW5M-xy41b6agXuGI_c_kjlFOKg"
-GOOGLE_KEY="ABQIAAAAo28WphcXpYaxZbMn79s0VRRETiP29whtXF2gCnIqeoPY9fJFzxSVzP1SJSa_NlficQA0MT5QgWobQw"
+GOOGLE_KEY="ABQIAAAAo2XWphcXpYaxZbMn79s0VRRaTiP29whtXF2gCnIqeoPY9fJFzxSVzP1SJSa_NlficQA0MT5QgWobQw"
 
 SAFE_MODE = False
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'dam',                      # Or path to database file if using sqlite3.
-        'USER': 'dam',                      # Not used with sqlite3.
-        'PASSWORD': 'dam',                  # Not used with sqlite3.
+        'NAME': 'dam_db',                      # Or path to database file if using sqlite3.
+        'USER': 'root',                      # Not used with sqlite3.
+        'PASSWORD': 'mysql',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     },

@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import *
+from django.conf.urls import *
 from settings import ROOT_PATH
 import os
 # Uncomment the next two lines to enable the admin:

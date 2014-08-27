@@ -1,8 +1,10 @@
 import random
 import os
 
+
 class DAGError(Exception):
     pass
+
 
 class Node:
     def __init__(self, name):
@@ -10,7 +12,7 @@ class Node:
         self.childs = []
         self.index = None
         self.lowlink = None
-        self.depth = None   #
+        self.depth = None  #
         self.visited = 0
 
     def add_child(self, node):
@@ -32,7 +34,7 @@ class DAG:
         if len(self.pipeline) == 0:
             raise DAGError('Empty pipeline')
         for name, data in self.pipeline.items():
-            #print 'processing node', name
+            # print 'processing node', name
             if not set(['in', 'out']).issubset(data.keys()):
                 raise DAGError('action %s misses "in" or "out" parameters' % name)
             node = Node(name)
@@ -44,12 +46,12 @@ class DAG:
                 else:
                     outputs[v] = node
 
-        #print outputs
+        # print outputs
         for data in self.pipeline.values():
             node = data['__node__']
             attached = 0
             for v in data['in']:
-                if v in outputs:  
+                if v in outputs:
                     #print 'found dependency %s -> %s' % (outputs[v].name, node.name)
                     attached = 1
                     outputs[v].add_child(node)
@@ -69,10 +71,10 @@ class DAG:
     def _tarjan(self, node, index, lowlink, stack, msg):
         """ detect if there are cycles """
         node.index = node.depth = index
-        node.lowlink = index 
+        node.lowlink = index
         index += 1
         stack.append(node)
-        #print "_tarjan: appending %s(index=%s, lowlink=%s, childs=%s)" % (node.name, node.index, node.lowlink, '-'.join([x.name for x in node.childs]))
+        # print "_tarjan: appending %s(index=%s, lowlink=%s, childs=%s)" % (node.name, node.index, node.lowlink, '-'.join([x.name for x in node.childs]))
         for n in node.childs:
             if n.index is None:
                 msg = self._tarjan(n, index, lowlink, stack, msg)
@@ -112,8 +114,10 @@ class DAG:
         """
         tag = self._new_tag()
         sorted = []
+
         def cb(node, user_data):
             user_data.insert(0, node.name)
+
         self._visit(self.root, shuffled, tag, cb, sorted)
         return sorted[1:]
 
@@ -141,17 +145,18 @@ class DAG:
             nodes.sort()
             print 'depth %s:\n %s' % (k, ' '.join(nodes))
 
+
 def test():
     pipeline = {
-        'a1': {'in':['v13'],                 'out':['v1', 'v2',] },
-        'a2': {'in':['v1','v4', 'v9'],       'out':['v3', ] },
-        'a3': {'in':['v0'],                 'out':['v4','v5',] },
-        'a4': {'in':['v7',],            'out':[] },
-        'a5': {'in':['v4',],            'out':['v6', 'vx'] },
-        'a6': {'in':['v3','v6','v9',],  'out':[] },
-        'a7': {'in':['v2', ],           'out':['v8'] },
-        'a8': {'in':['v8', ],            'out':['v9',] },
-        'a9': {'in':['v5',],            'out':['v7'] },
+        'a1': {'in': ['v13'], 'out': ['v1', 'v2', ]},
+        'a2': {'in': ['v1', 'v4', 'v9'], 'out': ['v3', ]},
+        'a3': {'in': ['v0'], 'out': ['v4', 'v5', ]},
+        'a4': {'in': ['v7', ], 'out': []},
+        'a5': {'in': ['v4', ], 'out': ['v6', 'vx']},
+        'a6': {'in': ['v3', 'v6', 'v9', ], 'out': []},
+        'a7': {'in': ['v2', ], 'out': ['v8']},
+        'a8': {'in': ['v8', ], 'out': ['v9', ]},
+        'a9': {'in': ['v5', ], 'out': ['v7']},
     }
     try:
         dg = DAG(pipeline)
@@ -160,8 +165,9 @@ def test():
     else:
         d1 = dg.sort(0)
         print id(d1), d1
-        
-if __name__=='__main__':
+
+
+if __name__ == '__main__':
     test()
 
 

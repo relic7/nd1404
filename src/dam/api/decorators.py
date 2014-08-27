@@ -27,8 +27,8 @@ from django.utils import simplejson as json
 import logging
 logger = logging.getLogger('dam')
 
-from dam.api.models import  Secret,  Application
-from dam.settings import SAFE_MODE
+from models import  Secret,  Application
+from settings import SAFE_MODE
 import hashlib
 
 from exceptions import *
