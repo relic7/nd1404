@@ -18,7 +18,8 @@
 
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.views.generic.simple import redirect_to
+#from django.views.generic.simple import redirect_to
+from django.views.generic import RedirectView
 from django.http import HttpResponse, HttpResponseForbidden, HttpResponseNotFound, HttpResponseForbidden
 
 from django.contrib.auth import authenticate, login, logout
@@ -53,7 +54,7 @@ def home(request, msg=None):
     """
     Always redirect user from http://host/ to http://host/workspace
     """
-    return redirect_to(request, '/workspace/')
+    return RedirectView.as_view(url='/workspace/') #redirect_to(request, '/workspace/')
 
 def do_login(request):
     """
@@ -93,7 +94,8 @@ def redirect_to_resource(request, id):
     except:
         url = NOTAVAILABLE
 
-    return redirect_to(request,  url)
+    return RedirectView.as_view(url={'url': '/%(url)s'})
+    #return redirect_to(request,  url)
 
 
 @login_required
@@ -110,7 +112,8 @@ def resources(request, component_id, workspace_id):
         return HttpResponseForbidden()
          
     url = component.get_component_url()    
-    return redirect_to(request, url)
+    #return redirect_to(request, url)
+    return RedirectView.as_view(url={'url': '/%(url)s'})
 
 @login_required
 def get_component(request, item_id, variant_name, redirect=False):
@@ -128,7 +131,8 @@ def get_component(request, item_id, variant_name, redirect=False):
         return HttpResponse(simplejson.dumps({'failure': True}))
 
     if redirect:
-        return redirect_to(request, url)
+        #return redirect_to(request, url)
+        return RedirectView.as_view(url={'url': '/%(url)s'})
     else:
         return HttpResponse(url)
 

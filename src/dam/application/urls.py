@@ -18,11 +18,11 @@
 
 from django.conf.urls import *
 #from django.views.generic.simple import direct_to_template
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, RedirectView
 
 
 urlpatterns = patterns('',
-
+    #(r'^$', RedirectView.as_view(url={'dam.application.views.home': '/%(new_url)s'}, r'^$')),
     (r'^$', 'dam.application.views.home'),
     (r'^login/$', 'dam.application.views.do_login'),
     (r'^logout/$', 'dam.application.views.do_logout'),
