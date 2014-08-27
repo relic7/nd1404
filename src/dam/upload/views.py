@@ -22,7 +22,7 @@ from django.template import RequestContext, Context, loader
 from django.template.loader import render_to_string
 from django.http import HttpResponse, HttpResponseServerError
 from django.utils import simplejson
-from django.views.generic.simple import redirect_to
+# from django.views.generic.simple import redirect_to
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -60,7 +60,7 @@ import os.path, traceback
 import time
 import tempfile
 from django.core.files.uploadedfile import TemporaryUploadedFile
-from  django.core.files.uploadhandler import TemporaryFileUploadHandler
+from django.core.files.uploadhandler import TemporaryFileUploadHandler
 
 class NDUploadedFile(TemporaryUploadedFile):
     def __init__(self, dir, name, content_type, size, charset):
@@ -711,7 +711,7 @@ def guess_media_type (file):
 @transaction.commit_manually
 def upload_session_finished(request):
     try:
-        from treeview.models import Node
+        from dam.treeview.models import Node
         session = request.POST['session']
         workspace = request.session.get('workspace')
         user = User.objects.get(pk = request.session['_auth_user_id'])
