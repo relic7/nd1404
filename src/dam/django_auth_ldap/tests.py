@@ -37,13 +37,13 @@ import django.db.models.signals
 from django.contrib.auth.models import User, Permission, Group
 from django.test import TestCase
 
-import django_auth_ldap.models
-from django_auth_ldap import backend
-from django_auth_ldap.config import _LDAPConfig, LDAPSearch
-from django_auth_ldap.config import PosixGroupType, MemberDNGroupType, NestedMemberDNGroupType
-from django_auth_ldap.config import GroupOfNamesType, NestedGroupOfNamesType
-from django_auth_ldap.config import GroupOfUniqueNamesType, NestedGroupOfUniqueNamesType
-from django_auth_ldap.config import ActiveDirectoryGroupType, NestedActiveDirectoryGroupType
+import models
+import backend
+from config import _LDAPConfig, LDAPSearch
+from config import PosixGroupType, MemberDNGroupType, NestedMemberDNGroupType
+from config import GroupOfNamesType, NestedGroupOfNamesType
+from config import GroupOfUniqueNamesType, NestedGroupOfUniqueNamesType
+from config import ActiveDirectoryGroupType, NestedActiveDirectoryGroupType
 
 
 class TestSettings(backend.LDAPSettings):
@@ -694,7 +694,7 @@ class LDAPTest(TestCase):
 
         def handle_user_saved(sender, **kwargs):
             if kwargs['created']:
-                django_auth_ldap.models.TestProfile.objects.create(user=kwargs['instance'])
+                models.TestProfile.objects.create(user=kwargs['instance'])
 
         def handle_populate_user_profile(sender, **kwargs):
             self.assert_('profile' in kwargs and 'ldap_user' in kwargs)

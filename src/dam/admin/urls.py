@@ -16,11 +16,10 @@
 #
 #########################################################################
 
-from django.conf.urls.defaults import *
+from django.conf.urls import *
 
 urlpatterns = patterns('',
     (r'^dam_admin/$','dam.admin.views.dam_admin'),
-
     (r'^dam_admin/get_admin_settings/$', 'dam.admin.views.get_admin_settings'),
     (r'^dam_admin/get_desc_groups/$', 'dam.admin.views.damadmin_get_desc_groups'),
     (r'^dam_admin/get_desc_list/$', 'dam.admin.views.damadmin_get_desc_list'),

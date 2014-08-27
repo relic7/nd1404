@@ -9,11 +9,11 @@ from django.views.generic.simple import redirect_to
 
 
 from django.contrib.auth.decorators import login_required
-from settings import NOTREDAM_ADDRESS, SECRET,  API_KEY, USER_ID, MAIN_WORKSPACE_ID,  ORIGINAL_VARIANTS, TAGS_NODE_ID
+from settings import  NOTREDAM_ADDRESS, SECRET,  API_KEY, USER_ID, MAIN_WORKSPACE_ID,  ORIGINAL_VARIANTS, TAGS_NODE_ID
 import hashlib
 import urllib
 from django.utils import simplejson
-from base.models import *
+from models import *
 from httplib import HTTP
 import os
 

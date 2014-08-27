@@ -29,7 +29,7 @@ from django.utils import simplejson
 from dam.repository.models import Item
 from dam.metadata.models import MetadataProperty
 from dam.core.dam_workspace.decorators import permission_required
-from dam.geo_features.models import GeoInfo
+from models import GeoInfo
 from dam.workspace.views import _search_items
 
 import logging

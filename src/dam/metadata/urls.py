@@ -16,22 +16,16 @@
 #
 #########################################################################
 
-from django.conf.urls.defaults import *
-
-
-
-
+from django.conf.urls import *
 
 
 urlpatterns = patterns('',
-
     (r'^get_metadata/$', 'dam.metadata.views.get_metadata'),
     (r'^save_metadata/$', 'dam.metadata.views.save_metadata'),
     (r'^metadata_structures/$', 'dam.metadata.views.get_metadata_structures'),
     (r'^save_descriptors/$', 'dam.metadata.views.save_descriptors'),
     (r'^get_basic_descriptors/$', 'dam.metadata.views.get_basic_descriptors'),
     (r'^sync_component/$', 'dam.metadata.views.sync_component'),
-    
     (r'^ws_admin/config_descriptors/(.+)/$', 'dam.metadata.views.wsadmin_config_descriptors'),
     (r'^ws_admin/get_descriptor_properties/$', 'dam.metadata.views.wsadmin_get_descriptor_properties'),
     (r'^ws_admin/save_ws_descriptors/$', 'dam.metadata.views.wsadmin_save_ws_descriptors'),

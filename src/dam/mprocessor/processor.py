@@ -40,9 +40,9 @@ from django.db import transaction
 from json import loads
 from config import Configurator
 from . import log
-from dam.mprocessor.models import Process, ProcessTarget
-from dam.mprocessor.pipeline import DAG
-from dam.mprocessor.schedule import Schedule
+from models import Process, ProcessTarget
+from pipeline import DAG
+from schedule import Schedule
 
 from dam.kb.tinykb.util import decorators # FIXME: move somewhere else?
 

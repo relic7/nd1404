@@ -2,7 +2,7 @@ import os
 import sys
 from django.core.management import setup_environ
 from django.utils import simplejson
-import dam.settings as settings
+import settings as settings
 os.environ['DJANGO_SETTINGS_MODULE'] = 'dam.settings'
 from django.db.models.loading import get_apps
 get_apps() 
@@ -12,19 +12,19 @@ from django.utils import simplejson as json
 from time import sleep
 import traceback
 
-from dam.api.utils import _get_final_parameters
+from api.utils import _get_final_parameters
 from django.test.client import Client
-from dam.api.models import *
-from dam.workspace.models import DAMWorkspace as Workspace
-from dam.repository.models import Item,  Component
-from dam.variants.models import Variant
-from dam.supported_types import supported_extensions, guess_file_type, mime_types_by_type, supported_types
-from dam.treeview.models import Node,  NodeMetadataAssociation,  SmartFolder,  SmartFolderNodeAssociation
+from api.models import *
+from workspace.models import DAMWorkspace as Workspace
+from repository.models import Item,  Component
+from variants.models import Variant
+from supported_types import supported_extensions, guess_file_type, mime_types_by_type, supported_types
+from treeview.models import Node,  NodeMetadataAssociation,  SmartFolder,  SmartFolderNodeAssociation
 
 
 
-from dam.core.dam_repository.models import Type
-from dam.upload.views import guess_media_type
+from core.dam_repository.models import Type
+from upload.views import guess_media_type
 import mimetypes
 WORKSPACE_NAME = 'Archivio'
 MEDIA_TYPE = 'image/jpeg'

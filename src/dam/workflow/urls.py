@@ -16,7 +16,7 @@
 #
 #########################################################################
 
-from django.conf.urls.defaults import *
+from django.conf.urls import *
 
 urlpatterns = patterns('',
     (r'^set_state/$','workflow.views.set_state'),

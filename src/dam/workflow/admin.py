@@ -18,7 +18,7 @@
 
 from django.contrib import admin
 
-from dam.workflow.models import State, StateItemAssociation
+from models import State, StateItemAssociation
 
 admin.site.register(State)
 #admin.site.register(StateItemAssociation)

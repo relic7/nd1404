@@ -5,7 +5,7 @@ TEMPLATE_DEBUG = DEBUG
 
 import os.path, os
 import sys
-ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
+ROOT_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'dam')
 NOTREDAM_ADDRESS = '127.0.0.1:10000'
 MAIN_WORKSPACE_ID = 1
 SECRET = 'ffbae16973db789f74b3d84494f133d4dcb34267'
@@ -21,7 +21,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASE_ENGINE = 'django.db.backends.mysql'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = 'dam'             # Or path to database file if using sqlite3.
+DATABASE_NAME = 'dam_db'             # Or path to database file if using sqlite3.
 DATABASE_USER = 'root'             # Not used with sqlite3.
 DATABASE_PASSWORD = 'mysql'         # Not used with sqlite3.
 DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.

@@ -16,7 +16,7 @@
 #
 #########################################################################
 
-from django.conf.urls.defaults import *
+from django.conf.urls import *
 
 urlpatterns = patterns('',
     (r'^get_markers/','dam.geo_features.views.get_markers'),

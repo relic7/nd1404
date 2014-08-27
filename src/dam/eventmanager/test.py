@@ -17,7 +17,7 @@
 #########################################################################
 
 from dam.workflow.models import State
-from dam.eventmanager.models import EventManager
+from models import EventManager
 
 from django.http import HttpResponse
 

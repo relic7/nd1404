@@ -32,15 +32,15 @@ class Configurator(SafeConfigParser, object):
            then other *.cfg files"""
         files = []
         dirname = os.path.dirname(os.path.abspath(__file__))
-	mainfile = os.path.join(dirname, 'mprocessor.cfg')
-        
-	if os.path.exists(mainfile):
+        mainfile = os.path.join(dirname, 'mprocessor.cfg')
+
+        if os.path.exists(mainfile):
             files.append(mainfile)
-        others = [os.path.join(dirname, x) for x in os.listdir(dirname) 
-                        if x.endswith('.cfg') and x != 'mprocessor.cfg']
-        others.sort()
-        files.extend(others)
-        return files
+            others = [os.path.join(dirname, x) for x in os.listdir(dirname)
+                            if x.endswith('.cfg') and x != 'mprocessor.cfg']
+            others.sort()
+            files.extend(others)
+            return files
 
     def get_cfg_dirs(self):
         """Return the list of directories where to look for configuration files"""

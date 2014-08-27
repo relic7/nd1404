@@ -2,7 +2,7 @@ from django.test import TestCase
 #from django.core.management import setup_environ
 import os
 from django.utils import simplejson as json
-import dam.settings as settings
+import settings as settings
 os.environ['DJANGO_SETTINGS_MODULE'] = 'dam.settings'
 from django.db.models.loading import get_apps
 get_apps() 
@@ -10,16 +10,16 @@ get_apps()
 
 from time import sleep
 
-from dam.api.utils import _get_final_parameters
+from api.utils import _get_final_parameters
 from django.test.client import Client
-from dam.api.models import *
-from dam.core.dam_workspace.models import WorkspacePermission, WorkspacePermissionAssociation
+from api.models import *
+from core.dam_workspace.models import WorkspacePermission, WorkspacePermissionAssociation
 
-from dam.workspace.models import DAMWorkspace
-from dam.repository.models import Item,  Component
-from dam.variants.models import Variant
-from dam.mprocessor.models import Process
-from dam.core.dam_repository.models import Type
+from workspace.models import DAMWorkspace
+from repository.models import Item,  Component
+from variants.models import Variant
+from mprocessor.models import Process
+from core.dam_repository.models import Type
 
 # This separate module of tests was necessary in order to have
 # some uploading tests, because uploading tests are not possible

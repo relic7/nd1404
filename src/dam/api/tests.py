@@ -50,28 +50,28 @@ NB. test_add_user uses an api method, /api/add_user/ which has been implemented 
 #########################################################################
 
 from django.test.client import Client
-from dam.api.models import *
+from api.models import *
 from django.contrib.auth.models import User
 import urllib
 from django.test import TestCase
 from django.utils import simplejson as json
 from django.db.models import Q
 
-from dam.api.exceptions import *
-from dam.treeview.models import Node,  NodeMetadataAssociation,  SmartFolder,  SmartFolderNodeAssociation
+from api.exceptions import *
+from treeview.models import Node,  NodeMetadataAssociation,  SmartFolder,  SmartFolderNodeAssociation
 
-from dam.variants.models import Variant
+from variants.models import Variant
 #from variants.models import VariantAssociation,   SourceVariant,  PresetParameterValue
-from dam.core.dam_workspace.models import WorkspacePermission, WorkspacePermissionAssociation
+from core.dam_workspace.models import WorkspacePermission, WorkspacePermissionAssociation
 
-from dam.workspace.models import DAMWorkspace
-from dam.repository.models import Item,  Component
-from dam.metadata.models import MetadataProperty,  MetadataValue
-from dam.core.dam_repository.models import Type
-from dam.workflow.models import State, StateItemAssociation
-from dam.workflow.views import _set_state
-from dam.mprocessor.models import Pipeline
-from dam.api.utils import _get_final_parameters
+from workspace.models import DAMWorkspace
+from repository.models import Item,  Component
+from metadata.models import MetadataProperty,  MetadataValue
+from core.dam_repository.models import Type
+from workflow.models import State, StateItemAssociation
+from workflow.views import _set_state
+from mprocessor.models import Pipeline
+from api.utils import _get_final_parameters
 from datetime import datetime
 import logging
 logger = logging.getLogger('dam')

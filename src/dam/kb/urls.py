@@ -23,7 +23,7 @@
 #
 #########################################################################
 
-from django.conf.urls.defaults import *
+from django.conf.urls import *
 
 urlpatterns = patterns('kb',
     (r'^get_hierarchy/$', 'views_GUI.get_object_attributes_hierarchy'),

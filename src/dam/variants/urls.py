@@ -16,7 +16,7 @@
 #
 #########################################################################
 
-from django.conf.urls.defaults import *
+from django.conf.urls import *
 
 urlpatterns = patterns('',
     (r'^edit_variant/$', 'dam.variants.views.edit_variant'),

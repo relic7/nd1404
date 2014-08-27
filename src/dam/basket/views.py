@@ -26,8 +26,8 @@ from django.http import HttpResponse, HttpResponseForbidden
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
-from dam.basket.models import Basket
-from dam.repository.models import Item
+from models import Basket
+from repository.models import Item
 
 import logging
 logger = logging.getLogger('dam')

@@ -30,6 +30,7 @@ ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 
 sys.path.append(PYTHONPATH)
 sys.path.append(ROOT_PATH)
+sys.path.append(os.path.dirname(__file__))
 
 REMOVE_OLD_PROCESSES= True
 CONFIRM_REGISTRATION = True
@@ -215,10 +216,13 @@ TEMPLATE_DIRS = (
 	os.path.join(ROOT_PATH, 'templates'),
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
-"django.core.context_processors.debug",
-"django.core.context_processors.i18n",
-"django.core.context_processors.media", "django.core.context_processors.request")
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.request"
+)
 
 INSTALLED_APPS = (
 	'django.contrib.auth',
@@ -227,7 +231,7 @@ INSTALLED_APPS = (
 	'django.contrib.sites',
 	'django.contrib.admin', 
 	'dam.core.dam_repository',
-        'dam.scripts',
+    'dam.scripts',
 	'dam.repository',
 	'dam.treeview',
 	'dam.core.dam_metadata',
@@ -244,9 +248,10 @@ INSTALLED_APPS = (
 	'dam.basket',
 	'dam.upload',
 	'dam.appearance',
-        'dam.mprocessor',
-        'dam.kb',
-        'south'
+    'dam.mprocessor',
+    'dam.kb',
+    'south',
+	'debug_toolbar',
 )
 
 # A sample logging configuration. The only tangible logging

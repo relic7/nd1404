@@ -17,7 +17,7 @@
 #########################################################################
 
 from django.contrib import admin
-from dam.eventmanager.models import EventRegistration, Event
+from models import EventRegistration, Event
 
 admin.site.register(EventRegistration)
 admin.site.register(Event)

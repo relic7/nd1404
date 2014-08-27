@@ -28,11 +28,11 @@ import sys,settings
 # Redirect standard output to standard error
 # FIXME: mostly necessary for dealing with 'print's scattered in the code base
 sys.stdout = sys.stderr
-
+sys.path.append(os.path.dirname(__file__))
 (parent_dir, _tail) = os.path.split(os.path.dirname(__file__))
 sys.path.append(parent_dir)
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'dam.settings'
-
+print 'WSGI OS ENVIRON'
 import django.core.handlers.wsgi
 application = django.core.handlers.wsgi.WSGIHandler()

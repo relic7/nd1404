@@ -61,7 +61,7 @@ from django.core.cache import cache
 from django.core.exceptions import ImproperlyConfigured, ObjectDoesNotExist
 import django.dispatch
 
-from django_auth_ldap.config import _LDAPConfig, LDAPSearch, LDAPGroupType
+from config import _LDAPConfig, LDAPSearch, LDAPGroupType
 
 
 logger = _LDAPConfig.get_logger()

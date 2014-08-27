@@ -18,8 +18,8 @@
 
 from django.db import models
 from django.contrib.auth.models import User
-from dam.workspace.models import DAMWorkspace as Workspace
-from dam.repository.models import Item
+from workspace.models import DAMWorkspace as Workspace
+from repository.models import Item
 
 class Basket(models.Model):
     """

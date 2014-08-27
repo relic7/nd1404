@@ -16,7 +16,7 @@
 #
 #########################################################################
 
-from django.conf.urls.defaults import *
+from django.conf.urls import *
 
 urlpatterns = patterns('',
     (r'^get_user_settings/$', 'dam.preferences.views.get_user_settings'),

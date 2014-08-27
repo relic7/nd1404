@@ -20,7 +20,7 @@ import os
 import mimetypes
 from django.db import models
 from django.contrib.auth.models import User
-from dam.supported_types import supported_extensions, guess_file_type
+from supported_types import supported_extensions, guess_file_type
 import logging
 logger = logging.getLogger('dam')
 

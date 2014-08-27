@@ -29,7 +29,7 @@ from dam.repository.models import Item, Component
 from dam.preferences.models import DAMComponent, DAMComponentSetting
 from dam.preferences.views import get_metadata_default_language
 from dam.workspace.models import DAMWorkspace as Workspace
-from dam.metadata.models import MetadataLanguage, MetadataValue, MetadataProperty, MetadataDescriptorGroup, MetadataDescriptor, RightsValue
+from models import MetadataLanguage, MetadataValue, MetadataProperty, MetadataDescriptorGroup, MetadataDescriptor, RightsValue
 from dam.mprocessor.models import Pipeline, Process
 from dam.variants.models import Variant
 from dam.core.dam_workspace import decorators

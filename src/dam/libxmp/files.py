@@ -38,10 +38,10 @@ then be used to manipulate the individual XMP properties. :class:`XMPFiles` cont
 includes a fallback packet scanner that can be used for unknown file formats. 
 """
 
-from libxmp import XMPError, XMPMeta
-from libxmp import _exempi, _XMP_ERROR_CODES, _check_for_error
-from libxmp.core import _encode_as_utf8
-from libxmp.consts import *
+from . import XMPError, XMPMeta
+from . import _exempi, _XMP_ERROR_CODES, _check_for_error
+from core import _encode_as_utf8
+from consts import *
 
 import os
 

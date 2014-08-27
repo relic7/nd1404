@@ -9,7 +9,7 @@ from django.core.handlers.wsgi import STATUS_CODE_TEXT
 from django.core.paginator import QuerySetPaginator, InvalidPage
 # the correct paginator for Model objects is the QuerySetPaginator,
 # not the Paginator! (see Django doc)
-from django.core.xheaders import populate_xheaders
+
 from django import forms
 from django.http import Http404, HttpResponse
 from django.forms.util import ErrorDict
@@ -18,7 +18,24 @@ from django.shortcuts import render_to_response
 from django.template import loader, RequestContext
 from django.utils import simplejson
 from django.utils.xmlutils import SimplerXMLGenerator
-from django.views.generic.simple import direct_to_template
+#from django.views.generic.simple import direct_to_template
+
+
+
+def populate_xheaders(request, response, model, object_id):
+    """
+    Adds the "X-Object-Type" and "X-Object-Id" headers to the given
+    HttpResponse according to the given model and object_id -- but only if the
+    given HttpRequest object has an IP address within the INTERNAL_IPS setting
+    or if the request is from a logged in staff member.
+    """
+    from django.conf import settings
+    if (request.META.get('REMOTE_ADDR') in settings.INTERNAL_IPS
+            or (hasattr(request, 'user') and request.user.is_active
+                and request.user.is_staff)):
+        response['X-Object-Type'] = "%s.%s" % (model._meta.app_label, model._meta.object_name.lower())
+        response['X-Object-Id'] = str(object_id)
+
 
 class SerializeResponder(object):
     """
@@ -264,10 +281,11 @@ class TemplateResponder(object):
         """
         if not error_dict:
             error_dict = ErrorDict()
-        response = direct_to_template(request, 
-            template = '%s/%s.html' % (self.template_dir, str(status_code)),
-            extra_context = { 'errors' : error_dict },
-            mimetype = self.mimetype)
+        response = ''
+        # response = direct_to_template(request,
+        #     template = '%s/%s.html' % (self.template_dir, str(status_code)),
+        #     extra_context = { 'errors' : error_dict },
+        #     mimetype = self.mimetype)
         response.status_code = status_code
         return response
     
