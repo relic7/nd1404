@@ -227,7 +227,7 @@ INSTALLED_APPS = (
 	'django.contrib.sites',
 	'django.contrib.admin', 
 	'dam.core.dam_repository',
-        'dam.scripts',
+    'dam.scripts',
 	'dam.repository',
 	'dam.treeview',
 	'dam.core.dam_metadata',
@@ -246,7 +246,8 @@ INSTALLED_APPS = (
 	'dam.appearance',
         'dam.mprocessor',
         'dam.kb',
-        'south'
+        'south',
+        # 'django-debug-toolbar'
 )
 
 # A sample logging configuration. The only tangible logging
