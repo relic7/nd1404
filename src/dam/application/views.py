@@ -33,7 +33,7 @@ from repository.models import Item, _get_resource_url, Component
 from workspace.models import DAMWorkspace as Workspace
 from settings import EMAIL_SENDER, SERVER_PUBLIC_ADDRESS, CONFIRM_REGISTRATION
 from forms import Registration
-from models import VerificationUrl, DAMComponentSetting
+from dam.preferences.models import VerificationUrl, DAMComponentSetting
 
 from core.dam_workspace.decorators import permission_required
 
