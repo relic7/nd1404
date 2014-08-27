@@ -91,7 +91,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-	# ('johnb', 'john.bragato@gmail.com'),
+    ('johnb', 'john.bragato@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -248,17 +248,10 @@ INSTALLED_APPS = (
 	'dam.basket',
 	'dam.upload',
 	'dam.appearance',
-<<<<<<< HEAD
-        'dam.mprocessor',
-        'dam.kb',
-        'south',
-        # 'django-debug-toolbar'
-=======
     'dam.mprocessor',
     'dam.kb',
     'south',
 	'debug_toolbar',
->>>>>>> b8cc793fed26b19c6b5cd960c403ffb555872a2a
 )
 
 # A sample logging configuration. The only tangible logging
