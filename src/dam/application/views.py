@@ -19,8 +19,8 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 #from django.views.generic.simple import redirect_to
-from django.views.generic import RedirectView
-from django.http import HttpResponse, HttpResponseForbidden, HttpResponseNotFound, HttpResponseForbidden
+from django.views.generic import RedirectView, TemplateView
+from django.http import HttpResponse, HttpResponseForbidden, HttpResponseNotFound, HttpResponseForbidden, HttpResponseServerError
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -145,7 +145,7 @@ def redirect_to_component(request, item_id, variant_name,  ws_id = None):
     return url
 
 
-def auth_and_create_workspace(user, ):
+def auth_and_create_workspace(request, user, ):
     user = authenticate(username = form.cleaned_data['username'], password =  form.cleaned_data['password1'])
     login(request,  user)
     ws = Workspace.objects.create_workspace(user.username, '', user)
@@ -235,7 +235,7 @@ def activate_user(username):
     
     
 def captcha_check(request):
-    from recaptcha.client import captcha
+    from dam.recaptcha.client import captcha
     import settings
     challenge = request.POST['challenge']
     response = request.POST['response']
