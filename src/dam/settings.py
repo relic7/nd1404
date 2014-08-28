@@ -592,7 +592,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 
 # Specify a custom user model to use
-#AUTH_USER_MODEL = 'accounts.djdamUser'
+#AUTH_USER_MODEL = 'accounts.damUser'
 # SECURITY WARNING: keep the secret key used in production secret!
 # Hardcoded values can leak through source control.
 # This is an example method of getting the value from an environment setting.
