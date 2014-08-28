@@ -18,7 +18,6 @@
 
 from django.conf.urls import *
 
-#.simple import direct_to_template
 from settings import ROOT_PATH, INSTALLATIONPATH, THUMBS_DIR
 import os.path
 

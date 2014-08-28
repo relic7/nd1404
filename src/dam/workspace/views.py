@@ -71,18 +71,19 @@ def admin_workspace(request,  ws_id):
     ws = Workspace.objects.get(pk = ws_id)
     return _admin_workspace(request,  ws)
 
+
 @login_required 
 def create_workspace(request):
     """
     Creates a new workspace
     """
-    
     #if not request.user.has_perm('dam_workspace.add_workspace'):
         #
         #return HttpResponseServerError('Permission Denied')
     #else: 
     	#return _admin_workspace(request,  None)
     return _admin_workspace(request,  None)
+
 
 def _admin_workspace(request,  ws):
     from django.db import IntegrityError
@@ -114,6 +115,7 @@ def _admin_workspace(request,  ws):
 
     return HttpResponse(resp)
 
+
 def _add_items_to_ws(item, ws, current_ws, remove = 'false' ):
     created = item.add_to_ws(ws)
     logger.debug('INSIDE _add_items_to_ws created is: %s' % created)
@@ -125,10 +127,10 @@ def _add_items_to_ws(item, ws, current_ws, remove = 'false' ):
     #item.deleted = False
     #item.save()
     return True
-        #
+
+
 @permission_required('remove_item')
 def _remove_items(request, ws, items):
-
     for item in items:
         item.delete_from_ws(request.user, [ws])
         
@@ -184,6 +186,7 @@ def add_items_to_ws(request):
         logger.exception(ex)
         raise ex
 
+
 @login_required
 @permission_required('admin')
 def delete_ws(request,  ws_id):
@@ -193,7 +196,8 @@ def delete_ws(request,  ws_id):
         return HttpResponse(simplejson.dumps({'success': True}))
     else:
         return HttpResponseServerError('You must have at least one workspace.')
-    
+
+
 @login_required
 def get_admin_workspaces(request):
     try:

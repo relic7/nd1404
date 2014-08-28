@@ -18,7 +18,6 @@
 
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-#from django.views.generic.simple import redirect_to
 from django.views.generic import RedirectView, TemplateView
 from django.http import HttpResponse, HttpResponseForbidden, HttpResponseNotFound, HttpResponseForbidden, HttpResponseServerError
 
@@ -29,16 +28,16 @@ from django.core.mail import send_mail
 from django.utils import simplejson
 from django.contrib.admin.views.decorators import staff_member_required
 
-from repository.models import Item, _get_resource_url, Component
-from workspace.models import DAMWorkspace as Workspace
+from src.dam.repository.models import Item, _get_resource_url, Component
+from src.dam.workspace.models import DAMWorkspace as Workspace
 from settings import EMAIL_SENDER, SERVER_PUBLIC_ADDRESS, CONFIRM_REGISTRATION
 from forms import Registration
 from src.dam.preferences.models import DAMComponentSetting
 from models import VerificationUrl
 
-from core.dam_workspace.decorators import permission_required
+from src.dam.core.dam_workspace.decorators import permission_required
 
-from mprocessor.storage import Storage
+from src.dam.mprocessor.storage import Storage
 
 import logging
 logger = logging.getLogger('dam')
@@ -147,7 +146,7 @@ def redirect_to_component(request, item_id, variant_name,  ws_id = None):
 
 
 def auth_and_create_workspace(request, user, ):
-    user = authenticate(username = form.cleaned_data['username'], password =  form.cleaned_data['password1'])
+    user = authenticate(username = form.cleaned_data['username'], password = form.cleaned_data['password1'])
     login(request,  user)
     ws = Workspace.objects.create_workspace(user.username, '', user)
     

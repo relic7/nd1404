@@ -17,9 +17,7 @@
 #########################################################################
 
 from django.conf.urls import *
-#from django.views.generic.simple import direct_to_template
 from django.views.generic import TemplateView, RedirectView
-
 
 urlpatterns = patterns('',
     #(r'^$', RedirectView.as_view(url={'dam.application.views.home': '/%(new_url)s'}, r'^$')),
@@ -29,12 +27,11 @@ urlpatterns = patterns('',
     (r'^get_component_url/(.+)/(.+)/$', 'dam.application.views.get_component'),
     (r'^redirect_to_component/(.+)/(.+)/$', 'dam.application.views.redirect_to_component'),
     (r'^resources/(.+)/(.+)/$', 'dam.application.views.resources'),
-#    (r'^items/(.+)/(.+)/$', 'dam.application.views.redirect_to_component'),    
+    #(r'^items/(.+)/(.+)/$', 'dam.application.views.redirect_to_component'),
     (r'^redirect_to_resource/(.+)/$','dam.application.views.redirect_to_resource'),
     (r'^registration/$','dam.application.views.registration'),
     (r'^confirm_user/(.+)/$','dam.application.views.confirm_user'),
     (r'^captcha_check/$','dam.application.views.captcha_check'),
     (r'^new_password/$', TemplateView.as_view(template_name='new_password.html')),
     (r'^get_new_password/$','dam.application.views.get_new_password'),
-   
 )

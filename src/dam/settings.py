@@ -63,6 +63,11 @@ sys.path.append(ROOT_PATH)
 sys.path.append(os.path.dirname(__file__))
 sys.path.append(INSTALLATIONPATH)
 
+# Hosts/domain names that are valid for this site; required if DEBUG is False
+# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
+# All hosts allowed
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 SERVER_PUBLIC_ADDRESS = '127.0.0.1:10000'
 
