@@ -5,8 +5,8 @@ TEMPLATE_DEBUG = DEBUG
 
 import os.path, os
 import sys
-#ROOT_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'dam')
-ROOT_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'dam')
+#ROOT_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 NOTREDAM_ADDRESS = '127.0.0.1:10000'
 MAIN_WORKSPACE_ID = 1
 SECRET = 'ffbae16973db789f74b3d84494f133d4dcb34267'
