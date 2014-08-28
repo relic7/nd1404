@@ -62,7 +62,7 @@ def get_scripts(request):
     return HttpResponse(simplejson.dumps(resp))
 
 @login_required
-@transaction.commit_manually
+@transaction.autocommit
 def get_rotation_script(request):
     workspace = request.session.get('workspace')
     # r_script = Pipeline.objects.filter(workspace = workspace, name = 'image renditions').distinct()

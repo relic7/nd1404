@@ -137,7 +137,7 @@ def _remove_items(request, ws, items):
         
 @login_required
 @permission_required('add_item', False)
-@transaction.commit_manually
+@transaction.autocommit
 def add_items_to_ws(request):
     try:
         item_ids = request.POST.getlist('item_id')

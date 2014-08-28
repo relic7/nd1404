@@ -59,7 +59,7 @@ def error_response( error_code, error_message, error_class,  error_dict = None):
 
 def exception_handler(func):
     
-    @transaction.commit_manually
+    @transaction.autocommit
     def _exception_handler(self,  request, *args, **kwargs):
        
         try:           
