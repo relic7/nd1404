@@ -28,15 +28,15 @@ from django.db.models import Q
 from django.db import IntegrityError
 from django.utils import simplejson
 
-from src.dam.settings import ROOT_PATH, SERVER_PUBLIC_ADDRESS
-from src.dam.variants.models import Variant
-from src.dam.core.dam_repository.models import Type
-from src.dam.repository.models import Component
-from src.dam.workspace.models import DAMWorkspace as Workspace
-from src.dam.core.dam_workspace.decorators import permission_required
-from src.dam.repository.models import Component, Item
-from src.dam.metadata.views import _get_ws_groups
-#from src.dam.mprocessor.models import Task
+from dam.settings import ROOT_PATH, SERVER_PUBLIC_ADDRESS
+from dam.variants.models import Variant
+from dam.core.dam_repository.models import Type
+from dam.repository.models import Component
+from dam.workspace.models import DAMWorkspace as Workspace
+from dam.core.dam_workspace.decorators import permission_required
+from dam.repository.models import Component, Item
+from dam.metadata.views import _get_ws_groups
+#from dam.mprocessor.models import Task
 
 import os
 import logging
@@ -114,7 +114,7 @@ def delete_variant(request):
 #@login_required
 #@permission_required('admin')
 #def force_variant_generation(request,  variant_id,  item_id):
-    #from src.dam.upload.views import generate_tasks
+    #from dam.upload.views import generate_tasks
     #
     #workspace = request.session['workspace']
     #variant = Variant.objects.get(pk = variant_id)

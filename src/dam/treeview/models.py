@@ -22,9 +22,9 @@ from django.contrib.contenttypes import generic
 from django.utils import simplejson
 from django.contrib.auth.models import User
 
-from src.dam.repository.models import Item
-from src.dam.core.dam_tree.models import AbstractNode
-from src.dam.kb.models import Object as KBObject
+from dam.repository.models import Item
+from dam.core.dam_tree.models import AbstractNode
+from dam.kb.models import Object as KBObject
 
 import logging
 logger = logging.getLogger('dam')
@@ -236,7 +236,7 @@ class Node(AbstractNode):
             item.update_last_modified(workspaces = [self.workspace])
 
     def save_metadata_mapping(self, metadata_schemas):
-        from src.dam.metadata.models import MetadataProperty
+        from dam.metadata.models import MetadataProperty
         
         node_associations_to_delete = NodeMetadataAssociation.objects.filter(node = self)
        
@@ -256,7 +256,7 @@ class Node(AbstractNode):
     #    node.metadata_schema.add(*MetadataProperty.objects.filter(pk__in = metadata_schemas))
 
     def save_metadata(self, items=None):
-        from src.dam.metadata.models import MetadataValue
+        from dam.metadata.models import MetadataValue
 
         ctype = ContentType.objects.get_for_model(Item)
 
@@ -272,7 +272,7 @@ class Node(AbstractNode):
                 m = MetadataValue.objects.get_or_create(schema=s, value=keyword, object_id= item.pk, content_type = ctype)
 
     def remove_metadata(self, items):
-        from src.dam.metadata.models import MetadataValue
+        from dam.metadata.models import MetadataValue
         
         ctype = ContentType.objects.get_for_model(Item)
 
@@ -301,7 +301,7 @@ class Node(AbstractNode):
         '''
         Associate a node to the given KB object.
 
-        @type  kb_object: src.dam.kb.models.Object or string
+        @type  kb_object: dam.kb.models.Object or string
         @param kb_object: a KB object instance, or its id (a string)
         '''
         if not self.editable:

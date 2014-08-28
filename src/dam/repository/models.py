@@ -21,10 +21,10 @@ from django.db.models import Q
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.models import User
-from src.dam.mprocessor.models import ProcessTarget
-from src.dam.core.dam_repository.models import AbstractItem, AbstractComponent
-from src.dam.settings import SERVER_PUBLIC_ADDRESS, STORAGE_SERVER_URL, MPROCESSOR_STORAGE
-from src.dam.metadata.models import *
+from dam.mprocessor.models import ProcessTarget
+from dam.core.dam_repository.models import AbstractItem, AbstractComponent
+from dam.settings import SERVER_PUBLIC_ADDRESS, STORAGE_SERVER_URL, MPROCESSOR_STORAGE
+from dam.metadata.models import *
 
 import os, datetime, urlparse, time, re, settings, logging
 from json import loads
@@ -88,7 +88,7 @@ class Item(AbstractItem):
         return ws_item.last_update
     
     def update_last_modified(self, time = datetime.datetime.now(), workspaces = []):
-        from src.dam.workspace.models import WorkspaceItem
+        from dam.workspace.models import WorkspaceItem
         logger.debug('workspaces %s'%workspaces)
         
         if not workspaces:
@@ -203,7 +203,7 @@ class Item(AbstractItem):
         MetadataValue.objects.save_metadata_value([self], new_metadata,  'original', self.workspaces.all()[0]) #workspace for variant metadata, not supported yet
 
     def get_workspaces(self):
-        from src.dam.workspace.models import DAMWorkspace, WorkspaceItem
+        from dam.workspace.models import DAMWorkspace, WorkspaceItem
         return DAMWorkspace.objects.filter(workspaceitem__in = WorkspaceItem.objects.filter(item = self, deleted = False))
         
     def get_workspaces_count(self):
@@ -293,7 +293,7 @@ class Item(AbstractItem):
         @param user an instance of auth.User
         @param workspaces a querySet of workspace.DAMWorkspace (optional)
         """
-        from src.dam.workspace.models import DAMWorkspace as Workspace
+        from dam.workspace.models import DAMWorkspace as Workspace
         from operator import or_
         if not workspaces:
             q1 = Workspace.objects.filter( Q(ws_permissions__permission__codename = 'admin') | Q(ws_permissions__permission__codename = 'remove_item'), members = user,ws_permissions__users = user)
@@ -359,7 +359,7 @@ class Item(AbstractItem):
         If the XMP Property is not specified, all the metadata will be returned
         @param metadataschema an instance of metadata.MetadataProperty
         """
-        from src.dam.metadata.models import MetadataValue, MetadataProperty
+        from dam.metadata.models import MetadataValue, MetadataProperty
     
         values = []
         original_component = Component.objects.get(item=self, variant__name='original', workspace=self.workspaces.all()[0])
@@ -393,8 +393,8 @@ class Item(AbstractItem):
         @param user an instance of auth.User
         @param workspace an instance of workspace.DAMWorkspace
         """
-        from src.dam.metadata.models import MetadataDescriptor, MetadataProperty
-        from src.dam.preferences.views import get_metadata_default_language
+        from dam.metadata.models import MetadataDescriptor, MetadataProperty
+        from dam.preferences.views import get_metadata_default_language
         
         descriptors = self.get_descriptors(workspace)
         default_language = get_metadata_default_language(user, workspace)
@@ -429,7 +429,7 @@ class Item(AbstractItem):
         given workspace
         @param workspace an instance of workspace.DAMWorkspace
         """
-        from src.dam.metadata.models import MetadataDescriptorGroup
+        from dam.metadata.models import MetadataDescriptorGroup
 
         if workspace:
             basic = MetadataDescriptorGroup.objects.filter(basic_summary=True, workspace=workspace)
@@ -454,7 +454,7 @@ class Item(AbstractItem):
         """
         Returns the file name found in the original variant
         """
-        from src.dam.variants.models import Variant
+        from dam.variants.models import Variant
         try:
             orig = self.component_set.get(variant__name = 'original')
             name = orig.file_name 
@@ -475,7 +475,7 @@ class Item(AbstractItem):
             return float(0)
 
     def get_states(self, workspace=None):
-        from src.dam.workflow.models import StateItemAssociation
+        from dam.workflow.models import StateItemAssociation
 
         if workspace is None:
             return StateItemAssociation.objects.filter(item = self)
@@ -488,7 +488,7 @@ class Item(AbstractItem):
         @param workspace an instance of workspace.DAMWorkspace
         @param variant an instance of variants.Variant
         """
-        from src.dam.variants.models import Variant
+        from dam.variants.models import Variant
         try:
             return self.component_set.get(variant = variant, workspace = workspace)
         except Component.DoesNotExist:
@@ -499,7 +499,7 @@ class Item(AbstractItem):
         """
         Retrieve all the item's components
         """
-        from src.dam.variants.models import Variant
+        from dam.variants.models import Variant
         return self.component_set.filter(variant__in = Variant.objects.filter(Q(workspace__isnull = True) | Q(workspace__pk = workspace.pk), hidden = False,  media_type = self.type),  workspace = workspace)
 
     def keywords(self):    
@@ -578,7 +578,7 @@ class Item(AbstractItem):
         return caption
         
     def get_info(self, workspace,  caption = None, default_language = None, check_deleted = False, fullscreen_caption = None):
-        from src.dam.geo_features.models import GeoInfo
+        from dam.geo_features.models import GeoInfo
         if caption and default_language: 
             caption = self._get_caption(caption, default_language)
         else:
@@ -705,7 +705,7 @@ class Component(AbstractComponent):
         self._previous_source_id = source._id
     
     def copy_metadata(self, component):
-        from src.dam.metadata.models import MetadataValue, MetadataProperty
+        from dam.metadata.models import MetadataValue, MetadataProperty
         values = component.metadata.all().values('xpath', 'language', 'schema_id', 'value', 'content_type_id')
         for value in values:
             schema_id = value.pop('schema_id')
@@ -838,7 +838,7 @@ class Component(AbstractComponent):
         """
         Returns the file size (something like 1.4 KB, 2.7 MB, ...)
         """
-        from src.dam.metadata.views import format_filesize
+        from dam.metadata.views import format_filesize
         return format_filesize(self.size)
     
     def get_metadata_values(self, metadataschema=None, language=None):
@@ -849,7 +849,7 @@ class Component(AbstractComponent):
         for all the XMP Properties
         @param metadataschema an instance of metadata.MetadataProperty (optional)
         """
-        from src.dam.metadata.models import MetadataValue
+        from dam.metadata.models import MetadataValue
         values = []
         if metadataschema:
             schema_value, delete, b = MetadataValue.objects.get_metadata_values([self.item.pk], metadataschema, set([self.item.type.name]), set([self.media_type.name]), [self.pk], self)
@@ -882,8 +882,8 @@ class Component(AbstractComponent):
         @param user an instance of auth.User
         @param workspace an instance of workspace.DAMWorkspace
         """
-        from src.dam.metadata.models import MetadataDescriptor, MetadataProperty
-        from src.dam.preferences.views import get_metadata_default_language
+        from dam.metadata.models import MetadataDescriptor, MetadataProperty
+        from dam.preferences.views import get_metadata_default_language
     
         descriptors = self.get_descriptors(group)
         default_language = get_metadata_default_language(user, workspace)
@@ -956,7 +956,7 @@ class Watermark(AbstractComponent):
         """
         Returns the component url (something like /storage/res_id.ext)
         """
-        from src.dam.application.views import NOTAVAILABLE
+        from dam.application.views import NOTAVAILABLE
 
         url = NOTAVAILABLE    
        

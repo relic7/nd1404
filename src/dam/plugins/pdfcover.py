@@ -16,10 +16,10 @@
 #
 #########################################################################
 
-from src.dam.plugins.common.adapter import Adapter
-from src.dam.repository.models import get_storage_file_name
-from src.dam.core.dam_repository.models import Type
-from src.dam.plugins.pdfcover_idl import inspect
+from dam.plugins.common.adapter import Adapter
+from dam.repository.models import get_storage_file_name
+from dam.core.dam_repository.models import Type
+from dam.plugins.pdfcover_idl import inspect
 from mprocessor import log
 
 def run(workspace, 
@@ -62,8 +62,8 @@ pipe2 = '-density 300 "file://%(infile)s[0]" "outfile://%(outfile)s"'
 #
 # Stand alone test: need to provide a compatible database (item 2 must be an item with a audio comp.)
 #
-from src.dam.repository.models import Item
-from src.dam.workspace.models import DAMWorkspace
+from dam.repository.models import Item
+from dam.workspace.models import DAMWorkspace
 
 def test():
     print 'test'

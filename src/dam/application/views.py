@@ -28,16 +28,16 @@ from django.core.mail import send_mail
 from django.utils import simplejson
 from django.contrib.admin.views.decorators import staff_member_required
 
-from src.dam.repository.models import Item, _get_resource_url, Component
-from src.dam.workspace.models import DAMWorkspace as Workspace
+from dam.repository.models import Item, _get_resource_url, Component
+from dam.workspace.models import DAMWorkspace as Workspace
 from settings import EMAIL_SENDER, SERVER_PUBLIC_ADDRESS, CONFIRM_REGISTRATION
 from forms import Registration
-from src.dam.preferences.models import DAMComponentSetting
+from dam.preferences.models import DAMComponentSetting
 from models import VerificationUrl
 
-from src.dam.core.dam_workspace.decorators import permission_required
+from dam.core.dam_workspace.decorators import permission_required
 
-from src.dam.mprocessor.storage import Storage
+from dam.mprocessor.storage import Storage
 
 import logging
 logger = logging.getLogger('dam')
@@ -235,7 +235,7 @@ def activate_user(username):
     
     
 def captcha_check(request):
-    from src.dam.recaptcha.client import captcha
+    from dam.recaptcha.client import captcha
     import settings
     challenge = request.POST['challenge']
     response = request.POST['response']

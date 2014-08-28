@@ -1,7 +1,7 @@
-from src.dam.libxmp import XMPFiles
-from src.dam.mprocessor import log
-from src.dam.mprocessor.config import Configurator
-from src.dam.mprocessor.storage import Storage
+from dam.libxmp import XMPFiles
+from dam.mprocessor import log
+from dam.mprocessor.config import Configurator
+from dam.mprocessor.storage import Storage
 
 
 class XMPExtractor(object):

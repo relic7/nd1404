@@ -2,7 +2,7 @@
 # Interface definition for adapt_audio: used by the GUI
 #
 
-from src.dam.plugins.common.utils import get_variants
+from dam.plugins.common.utils import get_variants
 
 def inspect(workspace):
     variants = get_variants(workspace)

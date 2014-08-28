@@ -16,13 +16,13 @@
 #
 #########################################################################
 
-from src.dam.plugins.common.adapter import Adapter
-from src.dam.repository.models import get_storage_file_name
-from src.dam.core.dam_repository.models import Type
-from src.dam.plugins.adapt_image_idl import inspect
-from src.dam.metadata.models import MetadataProperty, MetadataValue
-from src.dam.variants.models import Variant
-from src.dam.repository.models import Item, Component
+from dam.plugins.common.adapter import Adapter
+from dam.repository.models import get_storage_file_name
+from dam.core.dam_repository.models import Type
+from dam.plugins.adapt_image_idl import inspect
+from dam.metadata.models import MetadataProperty, MetadataValue
+from dam.variants.models import Variant
+from dam.repository.models import Item, Component
 from django.contrib.contenttypes.models import ContentType
 
 import logging
@@ -118,8 +118,8 @@ class AdaptImage(Adapter):
 #
 # Stand alone test: need to provide a compatible database (item 2 must be an item with a audio comp.)
 #
-from src.dam.repository.models import Item
-from src.dam.workspace.models import DAMWorkspace
+from dam.repository.models import Item
+from dam.workspace.models import DAMWorkspace
 
 def test():
     print 'test'

@@ -1,4 +1,4 @@
-#from src.dam.core.dam_metadata.models import XMPStructure
+#from dam.core.dam_metadata.models import XMPStructure
 #
 #def inspect():
 #    return {

@@ -1,11 +1,11 @@
 import os, time
-from src.dam.core.dam_repository.models import Type
-from src.dam.variants.models import Variant
-from src.dam.repository.models import get_storage_file_name
-from src.dam.plugins.common.utils import get_source_rendition
-from src.dam.plugins.common.cmdline import splitstring, import_cmd
+from dam.core.dam_repository.models import Type
+from dam.variants.models import Variant
+from dam.repository.models import get_storage_file_name
+from dam.plugins.common.utils import get_source_rendition
+from dam.plugins.common.cmdline import splitstring, import_cmd
 from mprocessor import log
-from src.dam.mprocessor.servers import generic_cmd
+from dam.mprocessor.servers import generic_cmd
 
 
 class Adapter:

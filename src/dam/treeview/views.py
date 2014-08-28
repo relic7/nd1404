@@ -26,12 +26,12 @@ from django.template import RequestContext, Context, loader
 from django.contrib.contenttypes.models import ContentType
 
 from models import Node,  NodeMetadataAssociation,  SmartFolder,  SmartFolderNodeAssociation,  SiblingsWithSameLabel
-from src.dam.core.dam_workspace.decorators import permission_required, membership_required
-from src.dam.metadata.models import MetadataProperty,  MetadataValue
-from src.dam.workspace.models import DAMWorkspace as Workspace
-from src.dam.repository.models import Item, Component
-from src.dam.core.dam_repository.models import Type
-from src.dam.kb.models import Object as KBObject
+from dam.core.dam_workspace.decorators import permission_required, membership_required
+from dam.metadata.models import MetadataProperty,  MetadataValue
+from dam.workspace.models import DAMWorkspace as Workspace
+from dam.repository.models import Item, Component
+from dam.core.dam_repository.models import Type
+from dam.kb.models import Object as KBObject
 
 from django.utils import simplejson
 

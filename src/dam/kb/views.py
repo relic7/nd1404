@@ -31,8 +31,8 @@ from django.http import (HttpRequest, HttpResponse, HttpResponseNotFound,
                          HttpResponseForbidden)
 from django.utils import simplejson
 
-from src.dam.core.dam_workspace.decorators import permission_required
-from src.dam.treeview.models import Node as TreeviewNode
+from dam.core.dam_workspace.decorators import permission_required
+from dam.treeview.models import Node as TreeviewNode
 from models import Object as DjangoKBObject
 
 import tinykb.access as kb_access
@@ -1231,7 +1231,7 @@ def _setup_kb_root_class_visibility(request, ses, cls, cls_dict, curr_ws):
 
     # Retrieve all the workspace IDs we could actually work on
     # FIXME: with_permissions() seems broken
-    # from src.dam.workspace.models import DAMWorkspace as WS
+    # from dam.workspace.models import DAMWorkspace as WS
     # usr_ws_ids = [w.id
     #              for w in WS.permissions.with_permissions(request.user,
     #                                                       ('admin', ))]

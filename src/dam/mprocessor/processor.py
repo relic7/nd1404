@@ -44,7 +44,7 @@ from models import Process, ProcessTarget
 from pipeline import DAG
 from schedule import Schedule
 
-from src.dam.kb.tinykb.util import decorators # FIXME: move somewhere else?
+from dam.kb.tinykb.util import decorators # FIXME: move somewhere else?
 
 from celery.task import task as celery_task
 
@@ -274,10 +274,10 @@ class Batch:
 
 import sys
 from django.contrib.auth.models import User
-from src.dam.mprocessor.make_plugins import pipeline as test_pipe
-from src.dam.mprocessor.make_plugins import simple_pipe as test_pipe2
-from src.dam.mprocessor.models import Pipeline, TriggerEvent
-from src.dam.workspace.models import DAMWorkspace
+from dam.mprocessor.make_plugins import pipeline as test_pipe
+from dam.mprocessor.make_plugins import simple_pipe as test_pipe2
+from dam.mprocessor.models import Pipeline, TriggerEvent
+from dam.workspace.models import DAMWorkspace
 from json import dumps
 
 ##

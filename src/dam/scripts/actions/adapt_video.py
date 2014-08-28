@@ -4,16 +4,16 @@
 #import os
 #
 #from django.core.management import setup_environ
-#import src.dam.settings as settings
+#import dam.settings as settings
 #os.environ['DJANGO_SETTINGS_MODULE'] = 'dam.settings'
 #from django.db.models.loading import get_models
 #
 #get_models()
 #
-#from src.dam.repository.models import Component
-#from src.dam.variants.models import Variant
-#from src.dam.repository.models import Item
-#from src.dam.workspace.models import DAMWorkspace
+#from dam.repository.models import Component
+#from dam.variants.models import Variant
+#from dam.repository.models import Item
+#from dam.workspace.models import DAMWorkspace
 #
 #from uuid import uuid4
 #

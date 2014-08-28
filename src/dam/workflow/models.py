@@ -29,7 +29,7 @@ class State(models.Model):
 		unique_together = (('name', 'workspace'),)
 	
 	def save(self, *args, **kwargs):
-		from src.dam.eventmanager.models import Event
+		from dam.eventmanager.models import Event
 		super(State, self).save(*args, **kwargs)
 		Event.objects.create(name = 'state change to '+ self.name,description = 'event fired when a list of items is associated to state %s'%self.name, workspace = self.workspace)
 	
@@ -42,7 +42,7 @@ class StateItemAssociation(models.Model):
 	item = models.ForeignKey('repository.Item')
 	
 	def save(self, *args, **kwargs):
-		from src.dam.eventmanager.models import EventRegistration
+		from dam.eventmanager.models import EventRegistration
 		if self.state.workspace not in self.item.workspaces.all():
 			raise WrongItemWorkspace('item %s is not in the workspace on which state %s is defined ' % (self.item.pk, self.state.name))
 		

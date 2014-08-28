@@ -39,12 +39,12 @@ from shutil import move
 from uuid import uuid4
 from ConfigParser import NoSectionError, NoOptionError
 
-from src.dam.mprocessor import log
-from src.dam.mprocessor.config import Configurator
-from src.dam.mprocessor.storage import Storage, new_id
-from src.dam.mprocessor.utils import RunProc
+from dam.mprocessor import log
+from dam.mprocessor.config import Configurator
+from dam.mprocessor.storage import Storage, new_id
+from dam.mprocessor.utils import RunProc
 
-from src.dam.mprocessor.servers.progress import get_progress_cb
+from dam.mprocessor.servers.progress import get_progress_cb
 
 class MProcessorError(Exception):
     pass

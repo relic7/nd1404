@@ -3,27 +3,27 @@ from time import strptime
 import re,os
 
 from mprocessor import log
-from src.dam.mprocessor.servers import xmp_extractor
+from dam.mprocessor.servers import xmp_extractor
 
 # from django.core.management import setup_environ
-import src.dam.settings as settings
+import dam.settings as settings
 os.environ['DJANGO_SETTINGS_MODULE'] = 'dam.settings'
 from django.db.models.loading import get_models
 
 get_models()
 
 from django.contrib.contenttypes.models import ContentType
-from src.dam.repository.models import Component
-from src.dam.metadata.models import MetadataProperty, MetadataValue
-from src.dam.core.dam_metadata.models import XMPNamespace
-from src.dam.preferences.views import get_metadata_default_language
-from src.dam.variants.models import Variant
-from src.dam.repository.models import Item
-from src.dam.workspace.models import DAMWorkspace
-from src.dam.plugins.common.utils import save_type
-from src.dam.plugins.extract_xmp_idl import inspect
-from src.dam.geo_features.models import GeoInfo
-from src.dam.plugins.common.utils import get_source_rendition
+from dam.repository.models import Component
+from dam.metadata.models import MetadataProperty, MetadataValue
+from dam.core.dam_metadata.models import XMPNamespace
+from dam.preferences.views import get_metadata_default_language
+from dam.variants.models import Variant
+from dam.repository.models import Item
+from dam.workspace.models import DAMWorkspace
+from dam.plugins.common.utils import save_type
+from dam.plugins.extract_xmp_idl import inspect
+from dam.geo_features.models import GeoInfo
+from dam.plugins.common.utils import get_source_rendition
 
 from uuid import uuid4
 

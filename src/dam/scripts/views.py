@@ -20,17 +20,17 @@ from django.db import transaction
 from django.http import HttpResponse, HttpResponseServerError
 from django.utils import simplejson
 from django.contrib.auth.decorators import login_required
-from src.dam.mprocessor.models import *
-from src.dam.mprocessor import processor
-from src.dam.eventmanager.models import Event, EventRegistration
-from src.dam.workspace.models import Workspace
-from src.dam.core.dam_repository.models import Type
+from dam.mprocessor.models import *
+from dam.mprocessor import processor
+from dam.eventmanager.models import Event, EventRegistration
+from dam.workspace.models import Workspace
+from dam.core.dam_repository.models import Type
 from httplib import HTTP
 from django.db import IntegrityError
-from src.dam.mprocessor.models import Pipeline, TriggerEvent
-from src.dam.supported_types import mime_types_by_type
-from src.dam.repository.models import Item
-from src.dam.upload.views import _run_pipelines
+from dam.mprocessor.models import Pipeline, TriggerEvent
+from dam.supported_types import mime_types_by_type
+from dam.repository.models import Item
+from dam.upload.views import _run_pipelines
 
 import logging
 logger = logging.getLogger('dam')
@@ -211,7 +211,7 @@ def _run_script(pipe, user, workspace, items = None, run_again = False, dynamic_
     
 @login_required
 def run_script(request):
-    from src.dam.repository.models import Item
+    from dam.repository.models import Item
     logger.info('inside run_script request.POST is: %s' % request.POST)
     script_id = request.POST['script_id']
     script = Pipeline.objects.get(pk = script_id)

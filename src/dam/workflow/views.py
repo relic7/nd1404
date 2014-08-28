@@ -20,10 +20,10 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.utils import simplejson
 
-from src.dam.workflow.models import State, StateItemAssociation
-from src.dam.workspace.models import DAMWorkspace as Workspace
-from src.dam.repository.models import Item
-from src.dam.core.dam_workspace.decorators import permission_required
+from dam.workflow.models import State, StateItemAssociation
+from dam.workspace.models import DAMWorkspace as Workspace
+from dam.repository.models import Item
+from dam.core.dam_workspace.decorators import permission_required
 
 def _set_state(items,state):
     

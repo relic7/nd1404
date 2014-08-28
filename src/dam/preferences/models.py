@@ -24,7 +24,7 @@ It can be easily done by using the django admin.
 
 from django.db import models
 from django.contrib.auth.models import User
-from src.dam.workspace.models import DAMWorkspace as Workspace
+from dam.workspace.models import DAMWorkspace as Workspace
 
 import logging
 logger = logging.getLogger('dam')
@@ -54,8 +54,8 @@ class SettingManager(models.Manager):
     def clear_preferences(self, obj, setting):
         """
         Clear the preferences for the given object (it can be a user, a workspace or None for system preferences)
-        @param obj an instance of django.contrib.auth.User or src.dam.workspace.models.Workspace or None
-        @param setting setting instance of src.dam.preference.models.DAMComponentSetting
+        @param obj an instance of django.contrib.auth.User or dam.workspace.models.Workspace or None
+        @param setting setting instance of dam.preference.models.DAMComponentSetting
         """
     
         if isinstance(obj, User):
@@ -68,8 +68,8 @@ class SettingManager(models.Manager):
     def create_preferences(self, obj, setting, value, choices):
         """
         Save the preference of the given obj (it can be a user, a workspace or None for system preferences)
-        @param obj an instance of django.contrib.auth.User or src.dam.workspace.models.Workspace or None
-        @param setting setting instance of src.dam.preference.models.DAMComponentSetting
+        @param obj an instance of django.contrib.auth.User or dam.workspace.models.Workspace or None
+        @param setting setting instance of dam.preference.models.DAMComponentSetting
         @param value the value of the given setting
         @param choices a list of choice
         """
@@ -125,7 +125,7 @@ class DAMComponentSetting(models.Model):
     You can choose between different types of setting: string, boolean, integer, email, choice or multiple choice. 
     In this way, you can ask the user to choose one or more values between a list of choices, or you can ask him to enter a string, an email, 
     an integer or choose between Yes or No. Finally you can read and use the value in your DAM component using the method get_user_setting 
-    defined in src.dam.preferences.views module.
+    defined in dam.preferences.views module.
     """
     name = models.CharField(max_length=64)
     caption = models.CharField(max_length=64)
@@ -145,7 +145,7 @@ class DAMComponentSetting(models.Model):
         """
         Returns the user value of the given setting, or the default value if user didn't make a choice yet  . 
         @param user user instance of django.contrib.auth.User
-        @param setting setting instance of src.dam.preference.models.DAMComponentSetting
+        @param setting setting instance of dam.preference.models.DAMComponentSetting
         """
         
         preferences_list = self.get_preferences_by_level(user, workspace)

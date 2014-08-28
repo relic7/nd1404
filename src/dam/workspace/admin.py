@@ -17,7 +17,7 @@
 #########################################################################
 
 from django.contrib import admin
-from src.dam.workspace.models import DAMWorkspace
+from dam.workspace.models import DAMWorkspace
 
 class WorkspaceAdmin(admin.ModelAdmin):
     filter_horizontal = ('members',)

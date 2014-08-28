@@ -18,14 +18,14 @@
 
 from django.db import models
 from django.db.models import Q
-from src.dam.workflow.models import State
-from src.dam.core.dam_workspace.models import Workspace, WorkspaceManager
-from src.dam.core.dam_repository.models import Type
+from dam.workflow.models import State
+from dam.core.dam_workspace.models import Workspace, WorkspaceManager
+from dam.core.dam_repository.models import Type
 
 import logging
 logger = logging.getLogger('dam')
 
-from src.dam.mprocessor.models import Process, TriggerEvent
+from dam.mprocessor.models import Process, TriggerEvent
 import simplejson
 
 
@@ -42,9 +42,9 @@ class WSManager(WorkspaceManager):
         @param description description of the new workspace (optional string)
         @param creator an instance of auth.User
         """
-        from src.dam.mprocessor.models import Pipeline
-        from src.dam.treeview.models import Node, Category
-        from src.dam.scripts.models import DEFAULT_PIPELINE, register_pipeline
+        from dam.mprocessor.models import Pipeline
+        from dam.treeview.models import Node, Category
+        from dam.scripts.models import DEFAULT_PIPELINE, register_pipeline
        
         ws = super(WSManager, self).create_workspace(name, description, creator)
         
@@ -86,7 +86,7 @@ class DAMWorkspace(Workspace):
         #Also deletes item's component bound to the current workspace
         #@param item item to remove (an instance of repository.Item)
         #"""
-        #from src.dam.treeview.models import Node
+        #from dam.treeview.models import Node
         #
         #try:
             #
@@ -108,7 +108,7 @@ class DAMWorkspace(Workspace):
         """
         Returns the list of variants for the current workspace
         """
-        from src.dam.variants.models import Variant
+        from dam.variants.models import Variant
         return Variant.objects.filter(Q(workspace = self) | Q(workspace__isnull = True,  )).distinct()  
     
     def get_active_processes(self, ):

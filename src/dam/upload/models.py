@@ -19,7 +19,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-from src.dam.workspace.models import DAMWorkspace
+from dam.workspace.models import DAMWorkspace
 
 import uuid
 

@@ -21,10 +21,10 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.utils import simplejson
 
-from src.dam.preferences.models import UserSetting, SettingValue, DAMComponent, DAMComponentSetting, SystemSetting, WSSetting
-from src.dam.workspace.models import DAMWorkspace as Workspace
-from src.dam.metadata.models import MetadataLanguage
-from src.dam.settings import LANGUAGE_CODE
+from dam.preferences.models import UserSetting, SettingValue, DAMComponent, DAMComponentSetting, SystemSetting, WSSetting
+from dam.workspace.models import DAMWorkspace as Workspace
+from dam.metadata.models import MetadataLanguage
+from dam.settings import LANGUAGE_CODE
 
 import logging
 logger = logging.getLogger('dam')

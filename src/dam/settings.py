@@ -240,7 +240,7 @@ ADMIN_MEDIA_PREFIX = '/media/'
 #########################
 # -- Storage Configs -- #
 #########################
-from src.dam.mprocessor.config import Configurator
+from dam.mprocessor.config import Configurator
 c = Configurator()
 MPROCESSOR_STORAGE = c.get('STORAGE', 'cache_dir')
 STORAGE_SERVER_URL= '/storage/'
