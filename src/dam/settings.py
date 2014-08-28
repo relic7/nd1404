@@ -17,6 +17,7 @@
 ###############################################################################
 #==============================================================================
 #
+from application.settings import SECRET, MAIN_WORKSPACE_ID, NOTREDAM_ADDRESS, USER_ID
 
 import os.path, os
 import sys
@@ -599,8 +600,17 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 # Uncomment to use, and then make sure you set the SECRET_KEY environment variable.
 # This is good to use in production, and on services that support it such as Heroku.
 #SECRET_KEY = get_env_setting('SECRET_KEY')
+# duplicated correctly in application settings
+# NOTREDAM_ADDRESS  = SERVER_PUBLIC_ADDRESS
+# SECRET            = SECRET_KEY
+# API_KEY           = ''
+# USER_ID           = 'admin'
+# MAIN_WORKSPACE_ID = '1'
+# ORIGINAL_VARIANTS = ''
+# TAGS_NODE_ID      = ''
 
 #==============================================================================
+
 ##################################################
 #######                End                 #######
 ##################################################

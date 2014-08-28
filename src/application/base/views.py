@@ -3,13 +3,15 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext 
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from django.views.generic import TemplateView, RedirectView
 
 from django.contrib.auth import authenticate, login, logout
 
 
 
 from django.contrib.auth.decorators import login_required
-from dam.settings import  NOTREDAM_ADDRESS, SECRET,  API_KEY, USER_ID, MAIN_WORKSPACE_ID,  ORIGINAL_VARIANTS, TAGS_NODE_ID
+from src.application.settings import NOTREDAM_ADDRESS, SECRET, API_KEY, USER_ID, MAIN_WORKSPACE_ID,  ORIGINAL_VARIANTS, TAGS_NODE_ID
+
 import hashlib
 import urllib
 import json as simplejson
@@ -261,7 +263,8 @@ def do_logout(request):
     logout(request)
     if request.session.__contains__('workspace'):
         request.session.__delitem__('workspace')
-    return redirect_to(request, '/')
+    return RedirectView.as_view(url={'url': '/'})
+
 @login_required
 def get_upload_url(request):
     file_name = request.POST['file_name']
