@@ -2,7 +2,7 @@
 # Interface definition for extract_basic: used by the GUI
 #
 
-from dam.plugins.common.utils import get_variants
+from src.dam.plugins.common.utils import get_variants
 
 def inspect(workspace):
     #variants = get_variants(workspace)

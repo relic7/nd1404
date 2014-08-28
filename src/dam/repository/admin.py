@@ -18,7 +18,7 @@
 
 from django.contrib import admin
 
-from dam.repository.models import Item, Component
+from src.dam.repository.models import Item, Component
 
 admin.site.register(Item)
 admin.site.register(Component)

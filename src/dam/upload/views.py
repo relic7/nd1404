@@ -31,24 +31,24 @@ from django.db import transaction
 import shutil, os
 from django.conf import settings
 
-#from dam.scripts.models import Pipeline
-from dam.mprocessor import processor
-from dam.mprocessor.models import Pipeline, Process
-from dam.repository.models import Item, Component, Watermark, new_id, get_storage_file_name
-from dam.core.dam_repository.models import Type, MimeError
-from dam.metadata.models import MetadataDescriptorGroup, MetadataDescriptor, MetadataValue, MetadataProperty
-from dam.supported_types import supported_types
-from dam.variants.models import Variant
-from dam.treeview.models import Node
-#from dam.batch_processor.models import MachineState, Machine, Action
-from dam.workspace.models import DAMWorkspace as Workspace, WorkspaceItem
-from dam.core.dam_workspace.decorators import permission_required
+#from src.dam.scripts.models import Pipeline
+from src.dam.mprocessor import processor
+from src.dam.mprocessor.models import Pipeline, Process
+from src.dam.repository.models import Item, Component, Watermark, new_id, get_storage_file_name
+from src.dam.core.dam_repository.models import Type, MimeError
+from src.dam.metadata.models import MetadataDescriptorGroup, MetadataDescriptor, MetadataValue, MetadataProperty
+from src.dam.supported_types import supported_types
+from src.dam.variants.models import Variant
+from src.dam.treeview.models import Node
+#from src.dam.batch_processor.models import MachineState, Machine, Action
+from src.dam.workspace.models import DAMWorkspace as Workspace, WorkspaceItem
+from src.dam.core.dam_workspace.decorators import permission_required
 from models import UploadURL
 from uploadhandler import StorageHandler
-from dam.eventmanager.models import EventRegistration
-from dam.preferences.views import get_metadata_default_language
-#from dam.mprocessor.models import MAction
-from dam.md5sum import md5
+from src.dam.eventmanager.models import EventRegistration
+from src.dam.preferences.views import get_metadata_default_language
+#from src.dam.mprocessor.models import MAction
+from src.dam.md5sum import md5
 from mprocessor.storage import Storage
 from urllib import unquote
 
@@ -498,7 +498,7 @@ def get_tmp_dir(session):
 def upload_item(request):
 
     """
-    Used for uploading a new item. Save the uploaded file using the custom handler dam.upload.uploadhandler.StorageHandler
+    Used for uploading a new item. Save the uploaded file using the custom handler src.dam.upload.uploadhandler.StorageHandler
     """
    
     
@@ -637,7 +637,7 @@ def upload_variant(request):
 
 def upload_watermark(request):
     """
-    Used for uploading/replacing the watermark for the given workspace. Save the uploaded file using the custom handler dam.upload.uploadhandler.StorageHandler
+    Used for uploading/replacing the watermark for the given workspace. Save the uploaded file using the custom handler src.dam.upload.uploadhandler.StorageHandler
     """
        
     request.upload_handlers = [StorageHandler()]
@@ -711,7 +711,7 @@ def guess_media_type (file):
 @transaction.commit_manually
 def upload_session_finished(request):
     try:
-        from dam.treeview.models import Node
+        from src.dam.treeview.models import Node
         session = request.POST['session']
         workspace = request.session.get('workspace')
         user = User.objects.get(pk = request.session['_auth_user_id'])

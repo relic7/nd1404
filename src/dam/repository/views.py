@@ -22,10 +22,10 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.utils import simplejson
 
-from dam.repository.models import Item, Component, Watermark
-from dam.workspace.models import DAMWorkspace as Workspace
-from dam.core.dam_workspace.decorators import permission_required
-from dam.treeview.models import Node
+from src.dam.repository.models import Item, Component, Watermark
+from src.dam.workspace.models import DAMWorkspace as Workspace
+from src.dam.core.dam_workspace.decorators import permission_required
+from src.dam.treeview.models import Node
 import time
 
 import os

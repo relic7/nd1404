@@ -26,11 +26,11 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.utils import simplejson
 
-from dam.repository.models import Item
-from dam.metadata.models import MetadataProperty
-from dam.core.dam_workspace.decorators import permission_required
+from src.dam.repository.models import Item
+from src.dam.metadata.models import MetadataProperty
+from src.dam.core.dam_workspace.decorators import permission_required
 from models import GeoInfo
-from dam.workspace.views import _search_items
+from src.dam.workspace.views import _search_items
 
 import logging
 logger = logging.getLogger('dam')

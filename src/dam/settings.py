@@ -118,12 +118,25 @@ SITE_ID = 1
 # to load the internationalization machinery.
 USE_I18N = True
 
-STATIC_ROOT = os.path.join(ROOT_PATH, 'files')
+# STATIC_ROOT= os.path.join(ROOT_PATH, 'var','static')
+# if os.path.isdir(STATIC_ROOT):
+#     pass
+# else:
+#     os.makedirs(STATIC_ROOT, mode=0777)
+
+
+STATIC_ROOT = os.path.abspath(os.path.join(ROOT_PATH, 'files'))
 STATIC_URL = '/static/'
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = ''
+# MEDIA_ROOT = ''
+
+MEDIA_ROOT = os.path.join(ROOT_PATH, 'var','media')
+if os.path.isdir(MEDIA_ROOT):
+    pass
+else:
+    os.makedirs(MEDIA_ROOT, mode=0777)
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -178,6 +191,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    STATIC_ROOT
 )
 
 # List of finder classes that know how to find static files in

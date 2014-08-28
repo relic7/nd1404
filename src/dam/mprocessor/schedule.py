@@ -103,8 +103,8 @@ class Schedule:
 
 # Test
 if __name__=='__main__':
-    from dam.mprocessor.pipeline import DAG
-    from dam.mprocessor.make_plugins import pipeline
+    from src.dam.mprocessor.pipeline import DAG
+    from src.dam.mprocessor.make_plugins import pipeline
     def main():
         p = DAG(pipeline)
         p.show()

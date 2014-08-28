@@ -21,11 +21,11 @@ import re
 from xml.sax import ContentHandler, parseString
 from json import dumps
 from django.contrib.contenttypes.models import ContentType
-from dam.plugins.common.analyzer import Analyzer
-from dam.metadata.models import MetadataProperty, MetadataValue
-from dam.preferences.views import get_metadata_default_language
-from dam.plugins.common.utils import save_type #, get_flv_duration
-from dam.plugins.extract_basic_idl import inspect
+from src.dam.plugins.common.analyzer import Analyzer
+from src.dam.metadata.models import MetadataProperty, MetadataValue
+from src.dam.preferences.views import get_metadata_default_language
+from src.dam.plugins.common.utils import save_type #, get_flv_duration
+from src.dam.plugins.extract_basic_idl import inspect
 from mprocessor import log
 
 

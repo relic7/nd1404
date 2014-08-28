@@ -19,7 +19,7 @@ import re
 from django.db import models
 import logging
 logger = logging.getLogger('dam')
-from dam.metadata.models import MetadataProperty
+from src.dam.metadata.models import MetadataProperty
 from django.db.models import Q
 
 class GeoManager(models.Manager):

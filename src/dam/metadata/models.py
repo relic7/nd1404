@@ -23,7 +23,7 @@ from django.contrib.contenttypes import generic
 from django.utils.translation import ugettext
 
 
-from dam.core.dam_metadata.models import AbstractMetadataLanguage, XMPProperty, XMPStructure, XMPPropertyChoice
+from src.dam.core.dam_metadata.models import AbstractMetadataLanguage, XMPProperty, XMPStructure, XMPPropertyChoice
 import logging
 logger = logging.getLogger('dam')
 
@@ -75,7 +75,7 @@ def set_modified_flag(mtdata, comp):
    Set flag modified in metadata and in Component
    """
    
-   from dam.repository.models import Component
+   from src.dam.repository.models import Component
    
    if mtdata.modified == False:
        mtdata.modified = True
@@ -171,7 +171,7 @@ class MetadataManager(models.Manager):
         """
     
         from django.db import connection
-        from dam.repository.models import Item, Component
+        from src.dam.repository.models import Item, Component
         
         to_be_deleted = False
         multiple_values = False
@@ -288,7 +288,7 @@ class MetadataManager(models.Manager):
         it saves the values as the first item of the array)
         """
         
-        from dam.repository.models import Item, Component
+        from src.dam.repository.models import Item, Component
         
         ctype_item = ContentType.objects.get_for_model(Item)
         ctype_obj = ContentType.objects.get_for_model(Component)
@@ -326,7 +326,7 @@ class MetadataManager(models.Manager):
         Save descriptor values for the given item
         """	
 
-        from dam.repository.models import Item, Component
+        from src.dam.repository.models import Item, Component
 
         ctype_item = ContentType.objects.get_for_model(Item)
         ctype_obj = ContentType.objects.get_for_model(Component)
@@ -408,7 +408,7 @@ class MetadataManager(models.Manager):
         Save XMP Values for the items in item_list
         """
         
-        from dam.repository.models import Item, Component
+        from src.dam.repository.models import Item, Component
         
         ctype_item = ContentType.objects.get_for_model(Item)
         ctype_obj = ContentType.objects.get_for_model(Component)

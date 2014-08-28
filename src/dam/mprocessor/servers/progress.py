@@ -1,6 +1,6 @@
 import re
-from dam.mprocessor import log
-from dam.mprocessor.utils import doHTTP
+from src.dam.mprocessor import log
+from src.dam.mprocessor.utils import doHTTP
 
 regular_expressions = {
     'gstreamer-progressreport': re.compile('report.*\(\s*([\d.]+) %\)$'),

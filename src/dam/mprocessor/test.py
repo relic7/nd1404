@@ -1,11 +1,11 @@
 from twisted.internet import reactor
 
 from json import dumps
-from dam.workspace.models import DAMWorkspace as Workspace
+from src.dam.workspace.models import DAMWorkspace as Workspace
 from config import Configurator
-from dam.mprocessor.models import Process, ProcessTarget,Pipeline, TriggerEvent
-from dam.mprocessor.pipeline import DAG
-from dam.mprocessor.processor import Batch
+from src.dam.mprocessor.models import Process, ProcessTarget,Pipeline, TriggerEvent
+from src.dam.mprocessor.pipeline import DAG
+from src.dam.mprocessor.processor import Batch
 
 
 c=Configurator()
@@ -90,8 +90,8 @@ def main1():
 # 2. Substitute the call to Batch.run() with Batch_test.run()
 # 3. execute main2  (with or without twisted)
 
-from dam.mprocessor.processor import MProcessor, Batch_test
-from dam.mprocessor.models import Process, Pipeline, ProcessTarget
+from src.dam.mprocessor.processor import MProcessor, Batch_test
+from src.dam.mprocessor.models import Process, Pipeline, ProcessTarget
 
 args = {'stop':2}
 

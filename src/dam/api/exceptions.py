@@ -15,14 +15,14 @@
 #    GNU General Public License for more details.
 #
 #########################################################################
-from dam.treeview.models import InvalidNode,  WrongWorkspace,  NotMovableNode,    NotEditableNode, SiblingsWithSameLabel
-from dam.treeview.models import Node, SmartFolder
-from dam.workspace.models import Workspace
-from dam.repository.models import Item
-from dam.metadata.models import MetadataProperty,  MetadataValue
-from dam.variants.models import Variant
-from dam.workflow.models import State, WrongItemWorkspace
-from dam.mprocessor.models import Pipeline
+from src.dam.treeview.models import InvalidNode,  WrongWorkspace,  NotMovableNode,    NotEditableNode, SiblingsWithSameLabel
+from src.dam.treeview.models import Node, SmartFolder
+from src.dam.workspace.models import Workspace
+from src.dam.repository.models import Item
+from src.dam.metadata.models import MetadataProperty,  MetadataValue
+from src.dam.variants.models import Variant
+from src.dam.workflow.models import State, WrongItemWorkspace
+from src.dam.mprocessor.models import Pipeline
 from django.db import IntegrityError
 
 class CodeErrorException(Exception): #abstract

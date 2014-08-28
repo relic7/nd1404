@@ -28,7 +28,7 @@ def notredam_connstring():
     NotreDAM DB settings
     '''
     # FIXME: this function, of course, is quite a kludge
-    from dam.settings import DATABASES
+    from src.dam.settings import DATABASES
 
     # We may need to modify the settings
     db = DATABASES['default']

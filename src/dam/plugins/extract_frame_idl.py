@@ -3,8 +3,8 @@
 # Interface definition: used by the GUI
 #
 
-from dam.variants.models import Variant    
-from dam.plugins.common.utils import get_ext_by_type, get_variants
+from src.dam.variants.models import Variant
+from src.dam.plugins.common.utils import get_ext_by_type, get_variants
 
 def inspect(workspace):
     from django.db.models import Q

@@ -18,7 +18,7 @@
 
 from django.contrib import admin
 
-from dam.scripts.models import *
+from src.dam.scripts.models import *
 
 #admin.site.register(Pipeline)
 

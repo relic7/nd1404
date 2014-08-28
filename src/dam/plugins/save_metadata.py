@@ -17,13 +17,13 @@
 #########################################################################
 import os
 # from django.core.management import setup_environ
-import dam.settings as settings
+import src.dam.settings as settings
 os.environ['DJANGO_SETTINGS_MODULE'] = 'dam.settings'
 from django.db.models.loading import get_models
 get_models()
 
 
-from dam.repository.models import Item
+from src.dam.repository.models import Item
 
 def save_metadata(item, metadata_namespace, metadata_name, metadata_value):
     item.set_metadata(metadata_namespace, metadata_name, metadata_value)

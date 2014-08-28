@@ -29,7 +29,7 @@ class State(models.Model):
 		unique_together = (('name', 'workspace'),)
 	
 	def save(self, *args, **kwargs):
-		from dam.eventmanager.models import Event
+		from src.dam.eventmanager.models import Event
 		super(State, self).save(*args, **kwargs)
 		Event.objects.create(name = 'state change to '+ self.name,description = 'event fired when a list of items is associated to state %s'%self.name, workspace = self.workspace)
 	

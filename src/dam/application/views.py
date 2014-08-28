@@ -33,7 +33,7 @@ from repository.models import Item, _get_resource_url, Component
 from workspace.models import DAMWorkspace as Workspace
 from settings import EMAIL_SENDER, SERVER_PUBLIC_ADDRESS, CONFIRM_REGISTRATION
 from forms import Registration
-from dam.preferences.models import DAMComponentSetting
+from src.dam.preferences.models import DAMComponentSetting
 from models import VerificationUrl
 
 from core.dam_workspace.decorators import permission_required
@@ -236,7 +236,7 @@ def activate_user(username):
     
     
 def captcha_check(request):
-    from dam.recaptcha.client import captcha
+    from src.dam.recaptcha.client import captcha
     import settings
     challenge = request.POST['challenge']
     response = request.POST['response']

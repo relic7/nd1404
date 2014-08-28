@@ -25,18 +25,18 @@ from django.utils import simplejson
 from django.contrib.auth.models import User
 from django.db.models import Q
 
-from dam.repository.models import Item, Component
-from dam.preferences.models import DAMComponent, DAMComponentSetting
-from dam.preferences.views import get_metadata_default_language
-from dam.workspace.models import DAMWorkspace as Workspace
+from src.dam.repository.models import Item, Component
+from src.dam.preferences.models import DAMComponent, DAMComponentSetting
+from src.dam.preferences.views import get_metadata_default_language
+from src.dam.workspace.models import DAMWorkspace as Workspace
 from models import MetadataLanguage, MetadataValue, MetadataProperty, MetadataDescriptorGroup, MetadataDescriptor, RightsValue
-from dam.mprocessor.models import Pipeline, Process
-from dam.variants.models import Variant
-from dam.core.dam_workspace import decorators
-#from dam.batch_processor.models import MachineState, Action, Machine
-#from dam.mprocessor.models import MAction
-from dam.core.dam_metadata.models import XMPNamespace, XMPStructure
-from dam.geo_features.models import GeoInfo
+from src.dam.mprocessor.models import Pipeline, Process
+from src.dam.variants.models import Variant
+from src.dam.core.dam_workspace import decorators
+#from src.dam.batch_processor.models import MachineState, Action, Machine
+#from src.dam.mprocessor.models import MAction
+from src.dam.core.dam_metadata.models import XMPNamespace, XMPStructure
+from src.dam.geo_features.models import GeoInfo
 from mx.DateTime.Parser import DateTimeFromString
 import logging
 logger = logging.getLogger('dam')

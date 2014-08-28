@@ -9,14 +9,14 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.contrib.auth.models import User, Permission
 
-from dam.preferences.models import UserSetting, SettingValue, DAMComponent, DAMComponentSetting, SystemSetting, WSSetting 
-from dam.core.dam_repository.models import Type
-from dam.core.dam_metadata.models import XMPStructure
-from dam.core.dam_metadata.models import XMPNamespace
-from dam.metadata.models import MetadataDescriptor, MetadataDescriptorGroup, MetadataProperty, RightsValue, RightsXMPValue
-from dam.workspace.models import DAMWorkspace as Workspace
-from dam.core.dam_workspace.models import WorkspacePermissionAssociation, WorkspacePermissionsGroup, WorkspacePermission
-from dam.workspace.views import _get_theme
+from src.dam.preferences.models import UserSetting, SettingValue, DAMComponent, DAMComponentSetting, SystemSetting, WSSetting
+from src.dam.core.dam_repository.models import Type
+from src.dam.core.dam_metadata.models import XMPStructure
+from src.dam.core.dam_metadata.models import XMPNamespace
+from src.dam.metadata.models import MetadataDescriptor, MetadataDescriptorGroup, MetadataProperty, RightsValue, RightsXMPValue
+from src.dam.workspace.models import DAMWorkspace as Workspace
+from src.dam.core.dam_workspace.models import WorkspacePermissionAssociation, WorkspacePermissionsGroup, WorkspacePermission
+from src.dam.workspace.views import _get_theme
 
 from settings import BACKUP_PATH, INSTALLATIONPATH
 import logging

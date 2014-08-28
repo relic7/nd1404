@@ -1,9 +1,9 @@
 import mimetypes
 from struct import unpack
 from mprocessor import log
-from dam.metadata.models import MetadataProperty, MetadataValue
-from dam.repository.models import Item, Component
-from dam.supported_types import mime_types_by_type
+from src.dam.metadata.models import MetadataProperty, MetadataValue
+from src.dam.repository.models import Item, Component
+from src.dam.supported_types import mime_types_by_type
 
 
 
@@ -22,7 +22,7 @@ def get_ext_by_type(type_name):
 
 def get_variants(workspace, media_type = None, auto_generated = None, exclude = []):
     from django.db.models import Q
-    from dam.variants.models import Variant
+    from src.dam.variants.models import Variant
     tmp_variants = Variant.objects.filter(Q(workspace = workspace) | Q(workspace__isnull = True),  hidden = False)
     if media_type:
         tmp_variants = tmp_variants.filter(media_type__name = media_type)

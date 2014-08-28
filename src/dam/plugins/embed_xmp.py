@@ -1,12 +1,12 @@
-from dam.core.dam_metadata.models import XMPStructure
-from dam.plugins.embed_xmp_idl import inspect
-from dam.variants.models import Variant
-from dam.repository.models import Item, Component
-from dam.plugins.common.utils import get_source_rendition
+from src.dam.core.dam_metadata.models import XMPStructure
+from src.dam.plugins.embed_xmp_idl import inspect
+from src.dam.variants.models import Variant
+from src.dam.repository.models import Item, Component
+from src.dam.plugins.common.utils import get_source_rendition
 import logging
 log = logging.getLogger('dam')
 
-from dam.mprocessor.servers.xmp_embedder import metadata_synch
+from src.dam.mprocessor.servers.xmp_embedder import metadata_synch
 
 
 # Entry point

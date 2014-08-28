@@ -26,28 +26,28 @@ from django.db.models import Q
 from django.contrib.auth.models import User
 from django.utils import simplejson
 from django.db import transaction
-from dam.basket.models import Basket
-from dam.repository.models import Item, Component
-from dam.core.dam_workspace.decorators import permission_required, membership_required
-from dam.treeview import views as treeview
-from dam.treeview.models import Node,  Category,  SmartFolder
-from dam.workspace.models import DAMWorkspace as Workspace, WorkspaceItem
-from dam.core.dam_workspace.models import WorkspacePermission, WorkspacePermissionsGroup, WorkspacePermissionAssociation
-from dam.variants.models import Variant      
-from dam.workspace.forms import AdminWorkspaceForm
-from dam.core.dam_repository.models import Type
-#from dam.geo_features.models import GeoInfo
-#from dam.mprocessor.models import Task
-from dam.settings import GOOGLE_KEY, DATABASES
-from dam.application.views import NOTAVAILABLE
-from dam.preferences.models import DAMComponentSetting, DAMComponent
-from dam.metadata.models import MetadataProperty
-from dam.preferences.views import get_metadata_default_language, get_ws_homepage_prefs
-from dam.mprocessor.models import Pipeline, Process, ProcessTarget
-from dam.mprocessor import processor
-from dam.eventmanager.models import Event, EventRegistration
-from dam.appearance.models import Theme
-from dam.upload.views import _run_pipelines
+from src.dam.basket.models import Basket
+from src.dam.repository.models import Item, Component
+from src.dam.core.dam_workspace.decorators import permission_required, membership_required
+from src.dam.treeview import views as treeview
+from src.dam.treeview.models import Node,  Category,  SmartFolder
+from src.dam.workspace.models import DAMWorkspace as Workspace, WorkspaceItem
+from src.dam.core.dam_workspace.models import WorkspacePermission, WorkspacePermissionsGroup, WorkspacePermissionAssociation
+from src.dam.variants.models import Variant
+from src.dam.workspace.forms import AdminWorkspaceForm
+from src.dam.core.dam_repository.models import Type
+#from src.dam.geo_features.models import GeoInfo
+#from src.dam.mprocessor.models import Task
+from src.dam.settings import GOOGLE_KEY, DATABASES
+from src.dam.application.views import NOTAVAILABLE
+from src.dam.preferences.models import DAMComponentSetting, DAMComponent
+from src.dam.metadata.models import MetadataProperty
+from src.dam.preferences.views import get_metadata_default_language, get_ws_homepage_prefs
+from src.dam.mprocessor.models import Pipeline, Process, ProcessTarget
+from src.dam.mprocessor import processor
+from src.dam.eventmanager.models import Event, EventRegistration
+from src.dam.appearance.models import Theme
+from src.dam.upload.views import _run_pipelines
 
 from django.utils.datastructures import SortedDict
 
@@ -387,7 +387,7 @@ def filter_by_date(date_type, query_dict, items, workspace = None):
             items = _query_by_date(items, date_type, 'dates_after_equal', dates_after_equal)
         return items
         
-def _search(query_dict,  items, media_type = None, start =0, limit=30,  workspace = None):
+def _search(request, query_dict, items, media_type = None, start =0, limit=30, workspace = None):
     
     def search_node(node, sub_branch):        
         if show_associated_items:
@@ -881,7 +881,7 @@ def upload_status(request):
         }
 ####
         if request.POST.get('update_script_monitor'):
-            from dam.scripts.views import _script_monitor
+            from src.dam.scripts.views import _script_monitor
             processes_info = _script_monitor(workspace)
             resp['scripts'] = processes_info 
             
@@ -988,7 +988,7 @@ def get_status(request):
         }
 ####
         if request.POST.get('update_script_monitor'):
-            from dam.scripts.views import _script_monitor
+            from src.dam.scripts.views import _script_monitor
             processes_info = _script_monitor(workspace)
             resp['scripts'] = processes_info 
 
@@ -1196,7 +1196,7 @@ def switch_ws(request):
     
 @login_required
 def download_renditions(request):
-    import  os, settings, tempfile
+    import  os, src.dam.settings, tempfile
     items = request.POST.getlist('items')
     renditions = request.POST.getlist('renditions')
     

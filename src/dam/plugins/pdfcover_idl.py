@@ -1,4 +1,4 @@
-from dam.plugins.common.utils import save_type, get_variants,get_ext_by_type
+from src.dam.plugins.common.utils import save_type, get_variants,get_ext_by_type
     
 def inspect(workspace):    
     variants = get_variants(workspace, 'doc', exclude=['thumbnail', 'preview'])

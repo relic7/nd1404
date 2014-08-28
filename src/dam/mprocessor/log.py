@@ -4,7 +4,7 @@ import inspect
 import codecs
 import time
 import traceback
-from dam.mprocessor.config import Configurator
+from src.dam.mprocessor.config import Configurator
 
 def conf_get(func, name, default):
     try:

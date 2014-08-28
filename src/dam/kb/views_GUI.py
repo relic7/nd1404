@@ -25,13 +25,13 @@ import tinykb.errors as kb_exc
 import util
 import settings
 #from . import *
-from dam.core.dam_workspace.models import WorkspacePermission, WorkspacePermissionsGroup, WorkspacePermissionAssociation
+from src.dam.core.dam_workspace.models import WorkspacePermission, WorkspacePermissionsGroup, WorkspacePermissionAssociation
 from workspace.models import DAMWorkspace as Workspace
 import views as views_kb # Using the "dam." prefix causes double loading!
-import dam.treeview.views as tree_view
-from dam.treeview.models import Node
+import src.dam.treeview.views as tree_view
+from src.dam.treeview.models import Node
 from django.contrib.auth.models import User
-from dam.repository.models import Component
+from src.dam.repository.models import Component
 import time
 
 import logging

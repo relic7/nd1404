@@ -16,11 +16,11 @@
 #
 #########################################################################
 
-from dam.plugins.common.adapter import Adapter
-from dam.repository.models import get_storage_file_name
-from dam.core.dam_repository.models import Type
-from dam.plugins.common.utils import resize_image
-from dam.plugins.extract_frame_idl import inspect
+from src.dam.plugins.common.adapter import Adapter
+from src.dam.repository.models import get_storage_file_name
+from src.dam.core.dam_repository.models import Type
+from src.dam.plugins.common.utils import resize_image
+from src.dam.plugins.extract_frame_idl import inspect
 from mprocessor import log
 
 def run(workspace, 
@@ -71,8 +71,8 @@ class ExtractFrame(Adapter):
 #
 # Stand alone test: need to provide a compatible database (item 2 must be an item with a audio comp.)
 #
-from dam.repository.models import Item
-from dam.workspace.models import DAMWorkspace
+from src.dam.repository.models import Item
+from src.dam.workspace.models import DAMWorkspace
 
 def test():
     print 'test'
