@@ -497,12 +497,11 @@ def custom_show_toolbar(request):
     return
 
 DEBUG_TOOLBAR_CONFIG = {
-    'INTERCEPT_REDIRECTS': True,
     'SHOW_TOOLBAR_CALLBACK': 'dam.settings.custom_show_toolbar',
     'INSERT_BEFORE': 'body',
     'SHOW_TEMPLATE_CONTEXT': True,
     'ENABLE_STACKTRACES': True,
-    # 'DISABLE_PANELS': True,
+    'DISABLE_PANELS': True,
 }
 
 DEBUG_TOOLBAR_PANELS = (
