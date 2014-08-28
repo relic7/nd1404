@@ -493,7 +493,8 @@ LOGGING = {
 #
 def custom_show_toolbar(request):
     """ Only show the debug toolbar to users with the superuser flag. """
-    return request.user.is_superuser
+    # return request.user.is_superuser
+    return
 
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': True,
