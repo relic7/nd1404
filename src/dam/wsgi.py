@@ -29,6 +29,9 @@ import sys,settings
 # FIXME: mostly necessary for dealing with 'print's scattered in the code base
 sys.stdout = sys.stderr
 sys.path.append(os.path.dirname(__file__))
+sys.path.append(os.path.join(os.path.dirname(__file__)), 'dam')
+sys.path.append(os.path.join(os.path.dirname(__file__)), 'application')
+
 (parent_dir, _tail) = os.path.split(os.path.dirname(__file__))
 sys.path.append(parent_dir)
 

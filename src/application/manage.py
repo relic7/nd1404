@@ -10,10 +10,13 @@ except ImportError:
 
 #if __name__ == "__main__":
 #    execute_manager(settings)
-import os,sys,settings
+
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
+    import os, sys, settings
     sys.path.append(os.path.dirname(__file__))
+    sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dam.settings")
+    os.environ['DJANGO_SETTINGS_MODULE'] = 'dam.settings'
 
     from django.core.management import execute_from_command_line
 
