@@ -16,6 +16,10 @@
 #
 #########################################################################
 
+from forms import Registration
+from models import VerificationUrl
+from dam.settings import EMAIL_SENDER, SERVER_PUBLIC_ADDRESS, CONFIRM_REGISTRATION
+
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.views.generic import RedirectView, TemplateView
@@ -30,11 +34,8 @@ from django.contrib.admin.views.decorators import staff_member_required
 
 from dam.repository.models import Item, _get_resource_url, Component
 from dam.workspace.models import DAMWorkspace as Workspace
-from settings import EMAIL_SENDER, SERVER_PUBLIC_ADDRESS, CONFIRM_REGISTRATION
-from forms import Registration
-from dam.preferences.models import DAMComponentSetting
-from models import VerificationUrl
 
+from dam.preferences.models import DAMComponentSetting
 from dam.core.dam_workspace.decorators import permission_required
 
 from dam.mprocessor.storage import Storage
@@ -56,6 +57,7 @@ def home(request, msg=None):
     """
     return RedirectView.as_view(url='/workspace/') #redirect_to(request, '/workspace/')
 
+
 def do_login(request):
     """
     Manage user login
@@ -73,6 +75,7 @@ def do_login(request):
     else:
         return HttpResponseForbidden("User or/and password wrong. Please check and try again.")
 
+
 @login_required
 def do_logout(request):
     """
@@ -83,12 +86,12 @@ def do_logout(request):
         request.session.__delitem__('workspace')
     return home(request)
 
+
 @login_required
 def redirect_to_resource(request, id):
     """
     Redirects to the resource url given by MediaDART
     """
-
     try:
         url = _get_resource_url(id)
     except:
@@ -115,6 +118,7 @@ def resources(request, component_id, workspace_id):
     #return redirect_to(request, url)
     return RedirectView.as_view(url={'url': '/%(url)s'})
 
+
 @login_required
 def get_component(request, item_id, variant_name, redirect=False):
     """
@@ -136,6 +140,7 @@ def get_component(request, item_id, variant_name, redirect=False):
     else:
         return HttpResponse(url)
 
+
 @login_required
 def redirect_to_component(request, item_id, variant_name,  ws_id = None):
     """
@@ -145,12 +150,16 @@ def redirect_to_component(request, item_id, variant_name,  ws_id = None):
     return url
 
 
-def auth_and_create_workspace(request, user, ):
+def auth_and_create_workspace(request, user, form):
     user = authenticate(username = form.cleaned_data['username'], password = form.cleaned_data['password1'])
-    login(request,  user)
+    login(request, user)
     ws = Workspace.objects.create_workspace(user.username, '', user)
-    
-    
+
+# def auth_and_create_workspace(user, ):
+#     user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password1'])
+#     login(request, user)
+#     ws = Workspace.objects.create_workspace(user.username, '', user)
+
 def registration(request):
     """
     Creates registration form or saves registration info
@@ -236,7 +245,7 @@ def activate_user(username):
     
 def captcha_check(request):
     from dam.recaptcha.client import captcha
-    import settings
+    import dam.settings
     challenge = request.POST['challenge']
     response = request.POST['response']
     
