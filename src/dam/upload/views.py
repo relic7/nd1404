@@ -22,7 +22,6 @@ from django.template import RequestContext, Context, loader
 from django.template.loader import render_to_string
 from django.http import HttpResponse, HttpResponseServerError
 from django.utils import simplejson
-# from django.views.generic.simple import redirect_to
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -121,8 +120,7 @@ def _get_uploaded_info(upload_file):
 
     return (file_name, type, res_id)
 
-
-@transaction.commit_manually
+@transaction.autocommit
 def _save_uploaded_component(request, res_id, file_name, variant, item, user, workspace):
     """
     Create component for the given item and generate mediadart tasks. 
@@ -707,8 +705,7 @@ def guess_media_type (file):
         raise Exception('unsupported media type')
 
     return media_type
-
-@transaction.commit_manually
+@transaction.autocommit
 def upload_session_finished(request):
     try:
         from dam.treeview.models import Node
@@ -765,7 +762,7 @@ def upload_session_finished(request):
         logger.exception(ex)
         
 @login_required
-@transaction.commit_manually
+@transaction.autocommit
 def upload_archive(request):
     try:
         import tempfile
