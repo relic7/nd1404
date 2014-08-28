@@ -42,7 +42,7 @@ class StateItemAssociation(models.Model):
 	item = models.ForeignKey('repository.Item')
 	
 	def save(self, *args, **kwargs):
-		from eventmanager.models import EventRegistration
+		from src.dam.eventmanager.models import EventRegistration
 		if self.state.workspace not in self.item.workspaces.all():
 			raise WrongItemWorkspace('item %s is not in the workspace on which state %s is defined ' % (self.item.pk, self.state.name))
 		
