@@ -3,7 +3,7 @@ Views used in /dam_admin/
 """
 
 from django.contrib.admin.views.decorators import staff_member_required
-from django.utils import simplejson
+import json as simplejson
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext

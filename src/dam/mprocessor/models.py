@@ -1,7 +1,7 @@
 from json import dumps
 from django.db import models
 from django.contrib.auth.models import User
-from django.utils import simplejson
+import json as simplejson
 from dam.core.dam_repository.models import Type
 import logging
 logger = logging.getLogger('dam')

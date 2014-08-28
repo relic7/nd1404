@@ -26,7 +26,7 @@ from django.template.loader import render_to_string
 from django.contrib.auth.models import User
 from django.db.models import Q
 from django.db import IntegrityError
-from django.utils import simplejson
+import json as simplejson
 
 from dam.settings import ROOT_PATH, SERVER_PUBLIC_ADDRESS
 from dam.variants.models import Variant

@@ -23,7 +23,7 @@ from django.contrib.auth.models import User
 from django_restapi.responder import *
 #from django_restapi.util import ErrorDict
 from django.forms.util import ErrorDict
-from django.utils import simplejson as json
+import json as simplejson as json
 import logging
 logger = logging.getLogger('dam')
 

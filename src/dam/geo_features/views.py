@@ -24,7 +24,7 @@ from django.http import HttpResponse, HttpResponseForbidden
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.db.models import Q
-from django.utils import simplejson
+import json as simplejson
 
 from dam.repository.models import Item
 from dam.metadata.models import MetadataProperty

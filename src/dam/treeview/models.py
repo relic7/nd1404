@@ -19,7 +19,7 @@
 from django.db import models
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
-from django.utils import simplejson
+import json as simplejson
 from django.contrib.auth.models import User
 
 from dam.repository.models import Item

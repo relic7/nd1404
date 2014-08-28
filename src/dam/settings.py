@@ -404,7 +404,8 @@ SESSION_COOKIE_SECURE = False
 ## -- Email Configs -- ##
 #########################
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'john.bragato@gmail.com'
+DEFAULT_FROM_EMAIL  = 'john.bragato@gmail.com'
+EMAIL_ADMIN         = 'john.bragato@gmail.com'
 # EMAIL_FILE_PATH =
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '993'

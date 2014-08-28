@@ -22,7 +22,7 @@ from django.http import HttpResponseRedirect, HttpResponse,  Http404
 from django.shortcuts import render_to_response
 from django.core import serializers
 
-from django.utils import simplejson as json
+import json
 from django.db.models.query import QuerySet
 from django.db.models import Q
 

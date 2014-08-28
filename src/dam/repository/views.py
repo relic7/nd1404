@@ -20,7 +20,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 from django.db.models import Q
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.utils import simplejson
+import json as simplejson
 
 from dam.repository.models import Item, Component, Watermark
 from dam.workspace.models import DAMWorkspace as Workspace

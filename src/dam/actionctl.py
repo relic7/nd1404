@@ -10,7 +10,7 @@ from django.db.models.loading import get_models
 
 loaded_models = get_models()
 
-from django.utils import simplejson
+import json as simplejson
 from django.contrib.auth.models import User
 from django.db import transaction
 

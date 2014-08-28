@@ -23,7 +23,7 @@ from django.http import HttpResponse, HttpResponseForbidden, HttpResponseRedirec
 from django.contrib.admin.views.decorators import staff_member_required
 
 from django.contrib.auth.models import User, Permission
-from django.utils import simplejson
+import json as simplejson
 from django.core.mail import EmailMessage
 
 from dam.settings import EMAIL_SENDER, EMAIL_ADMIN

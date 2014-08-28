@@ -29,7 +29,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import (HttpRequest, HttpResponse, HttpResponseNotFound,
                          HttpResponseNotAllowed, HttpResponseBadRequest,
                          HttpResponseForbidden)
-from django.utils import simplejson
+import json as simplejson
 
 from dam.core.dam_workspace.decorators import permission_required
 from dam.treeview.models import Node as TreeviewNode

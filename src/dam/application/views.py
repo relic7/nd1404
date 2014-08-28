@@ -29,7 +29,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
-from django.utils import simplejson
+import json as simplejson
 from django.contrib.admin.views.decorators import staff_member_required
 
 from dam.repository.models import Item, _get_resource_url, Component

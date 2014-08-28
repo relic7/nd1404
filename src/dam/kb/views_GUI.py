@@ -19,7 +19,7 @@
 from django.contrib.auth.decorators import login_required
 from django.http import (HttpRequest, HttpResponse, HttpResponseNotFound,
                          HttpResponseNotAllowed, HttpResponseBadRequest)
-from django.utils import simplejson
+import json as simplejson
 import tinykb.session as kb_ses
 import tinykb.errors as kb_exc
 import util

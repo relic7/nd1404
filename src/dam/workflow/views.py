@@ -18,7 +18,7 @@
 
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from django.utils import simplejson
+import json as simplejson
 
 from dam.workflow.models import State, StateItemAssociation
 from dam.workspace.models import DAMWorkspace as Workspace

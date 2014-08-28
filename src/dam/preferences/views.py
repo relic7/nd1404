@@ -19,7 +19,7 @@
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.utils import simplejson
+import json as simplejson
 
 from dam.preferences.models import UserSetting, SettingValue, DAMComponent, DAMComponentSetting, SystemSetting, WSSetting
 from dam.workspace.models import DAMWorkspace as Workspace

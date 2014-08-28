@@ -54,7 +54,7 @@ from api.models import *
 from django.contrib.auth.models import User
 import urllib
 from django.test import TestCase
-from django.utils import simplejson as json
+import json
 from django.db.models import Q
 
 from api.exceptions import *

@@ -33,7 +33,7 @@ from dam.repository.models import Item, Component
 from dam.core.dam_repository.models import Type
 from dam.kb.models import Object as KBObject
 
-from django.utils import simplejson
+import json as simplejson
 
 import cPickle as pickle
 import logging

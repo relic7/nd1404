@@ -21,7 +21,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseBadRequest
-from django.utils import simplejson
+import json as simplejson
 from django.contrib.auth.models import User
 from django.db.models import Q
 

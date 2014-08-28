@@ -1,7 +1,7 @@
 from django.test import TestCase
 #from django.core.management import setup_environ
 import os
-from django.utils import simplejson as json
+import json
 import settings as settings
 os.environ['DJANGO_SETTINGS_MODULE'] = 'dam.settings'
 from django.db.models.loading import get_apps

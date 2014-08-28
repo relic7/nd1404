@@ -1,13 +1,11 @@
 import os
 import sys
-from django.core.management import setup_environ
-from django.utils import simplejson
-import settings as settings
+import dam.settings as settings
 os.environ['DJANGO_SETTINGS_MODULE'] = 'dam.settings'
 from django.db.models.loading import get_apps
 get_apps() 
 
-from django.utils import simplejson as json
+import json
 
 from time import sleep
 import traceback

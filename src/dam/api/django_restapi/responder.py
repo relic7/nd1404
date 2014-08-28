@@ -16,7 +16,7 @@ from django.forms.util import ErrorDict
 #from util import ErrorDict
 from django.shortcuts import render_to_response
 from django.template import loader, RequestContext
-from django.utils import simplejson
+import json as simplejson
 from django.utils.xmlutils import SimplerXMLGenerator
 #from django.views.generic.simple import direct_to_template
 

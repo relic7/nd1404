@@ -24,7 +24,7 @@ from django.http import HttpResponse, HttpResponseForbidden, HttpResponseServerE
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib.auth.models import User
-from django.utils import simplejson
+import json as simplejson
 from django.db import transaction
 from dam.basket.models import Basket
 from dam.repository.models import Item, Component

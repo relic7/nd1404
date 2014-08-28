@@ -28,7 +28,7 @@ from dam.metadata.models import *
 
 import os, datetime, urlparse, time, re, settings, logging
 from json import loads
-from django.utils import simplejson
+import json as simplejson
 from django.utils.encoding import smart_str
 
 logger = logging.getLogger('dam')

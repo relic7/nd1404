@@ -3,7 +3,7 @@ from models import Theme
 #from settings import THEMES_PATH
 import os
 from django.http import HttpResponse
-from django.utils import simplejson
+import json as simplejson
 
 
 class ThemeAdmin(admin.ModelAdmin):

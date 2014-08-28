@@ -19,7 +19,7 @@ from alembic.script import Script
 
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseForbidden
-from django.utils import simplejson
+import json as simplejson
 from django.db.models import Q
 from django.contrib.contenttypes.models import ContentType
 

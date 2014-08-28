@@ -21,7 +21,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext, Context, loader
 from django.template.loader import render_to_string
 from django.http import HttpResponse, HttpResponseServerError
-from django.utils import simplejson
+import json as simplejson
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User

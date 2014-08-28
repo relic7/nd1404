@@ -1,16 +1,15 @@
 from django.conf import settings
 from django.http import HttpResponseRedirect, get_host
+import re
+
+SSL = 'SSL'
+
 
 class QueryStringSessionMiddleware:
     def process_request(self, request):
         if request.GET.has_key(settings.SESSION_COOKIE_NAME):
             request.COOKIES[settings.SESSION_COOKIE_NAME] = request.GET[settings.SESSION_COOKIE_NAME]
 
-from django.conf import settings
-from django.http import HttpResponseRedirect, get_host
-import re
-
-SSL = 'SSL'
 
 class SSLRedirect:
     urls = tuple([re.compile(url) for url in settings.SSL_URLS])

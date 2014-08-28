@@ -18,7 +18,7 @@
 
 from django.db import transaction
 from django.http import HttpResponse, HttpResponseServerError
-from django.utils import simplejson
+import json as simplejson
 from django.contrib.auth.decorators import login_required
 from dam.mprocessor.models import *
 from dam.mprocessor import processor

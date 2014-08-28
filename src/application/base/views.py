@@ -5,14 +5,14 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 
 from django.contrib.auth import authenticate, login, logout
-from django.views.generic.simple import redirect_to
+
 
 
 from django.contrib.auth.decorators import login_required
-from settings import  NOTREDAM_ADDRESS, SECRET,  API_KEY, USER_ID, MAIN_WORKSPACE_ID,  ORIGINAL_VARIANTS, TAGS_NODE_ID
+from dam.settings import  NOTREDAM_ADDRESS, SECRET,  API_KEY, USER_ID, MAIN_WORKSPACE_ID,  ORIGINAL_VARIANTS, TAGS_NODE_ID
 import hashlib
 import urllib
-from django.utils import simplejson
+import json as simplejson
 from models import *
 from httplib import HTTP
 import os

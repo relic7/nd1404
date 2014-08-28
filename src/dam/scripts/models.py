@@ -18,7 +18,7 @@
 
 #from django.db import models
 
-from django.utils import simplejson
+import json as simplejson
 
 thumbnail = {
     'thumbnail_image':{
