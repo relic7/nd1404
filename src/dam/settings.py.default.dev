@@ -46,16 +46,16 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'dam_db',                      # Or path to database file if using sqlite3.
-        'USER': 'dam',                      # Not used with sqlite3.
-        'PASSWORD': 'dam',                  # Not used with sqlite3.
+        'USER': 'root',                      # Not used with sqlite3.
+        'PASSWORD': 'mysql',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     },
     #'default': {
         #'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         #'NAME': 'dam_db',                      # Or path to database file if using sqlite3.
-        #'USER': 'dam',                      # Not used with sqlite3.
-        #'PASSWORD': 'dam',                  # Not used with sqlite3.
+        #'USER': 'root',                      # Not used with sqlite3.
+        #'PASSWORD': 'mysql',                  # Not used with sqlite3.
         #'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         #'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     #}
@@ -68,7 +68,7 @@ DATABASES = {
 #if DATABASE_ENGINE == 'sqlite3':
     #DATABASE_NAME = os.path.join(ROOT_PATH,  DATABASE_NAME)
 
-CAPTCHA_PRIVATE_KEY = '6LeIrcMSAAAAAF_F3yhg0AyO65M5bpj4Kb4OW9tC'
+CAPTCHA_PRIVATE_KEY = '6LeIrcMSAAqAAF_F3yhg0AyO65M5bpj4Kb4OW9tC'
 EMAIL_HOST = "mail.relic7.org"
 EMAIL_SENDER = "dam@relic7.org"
 SERVER_PUBLIC_ADDRESS = '127.0.0.1:10000'
@@ -93,8 +93,8 @@ MANAGERS = ADMINS
 # although not all choices may be available on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-#TIME_ZONE = 'America/Chicago'
-TIME_ZONE = 'Europe/Rome'
+TIME_ZONE = 'America/New_York'
+#TIME_ZONE = 'Europe/Rome'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -149,6 +149,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    ''
 )
 
 # List of finder classes that know how to find static files in
@@ -156,7 +157,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 #### DECOMMENT TO USE LDAP AUTHENTICATION. NOTE THAT IT NEEDS ldap PACKAGE INSTALLED
