@@ -23,12 +23,12 @@ from django.contrib.auth.models import User
 from django_restapi.responder import *
 #from django_restapi.util import ErrorDict
 from django.forms.util import ErrorDict
-import json as simplejson as json
+import json as simplejson
 import logging
 logger = logging.getLogger('dam')
-
+from dam.api.decorators import InvalidAPIKeyOrUserId
 from models import  Secret,  Application
-from settings import SAFE_MODE
+from dam.settings import SAFE_MODE
 import hashlib
 
 from exceptions import *
@@ -51,7 +51,7 @@ def error_response( error_code, error_message, error_class,  error_dict = None):
         error_dict = ErrorDict(error_dict)
         resp_dict['error message'] += '\n%s'%error_dict.as_text() 
     logger.debug('resp_dict%s' %resp_dict)
-    response.write(json.dumps(resp_dict))
+    response.write(simplejson.dumps(resp_dict))
     logger.debug('response.content %s' %response.content)
     return response
 
@@ -123,11 +123,11 @@ def api_key_required(func):
                 raise MissingUserId
         if not checksum:
             raise MissingSecret
-            
+
         try:
             secret_obj = Secret.objects.get(application__api_key = api_key,  user__pk = user_id)
         except Secret.DoesNotExist:
-            raise invalidAPIKeyOrUserId
+            raise InvalidAPIKeyOrUserId
         
         
         args_dict.pop('checksum')
