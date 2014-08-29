@@ -21,6 +21,7 @@ from django.db.models import Q
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 import json as simplejson
+from django.views.generic import TemplateView, RedirectView
 
 from dam.repository.models import Item, Component, Watermark
 from dam.workspace.models import DAMWorkspace as Workspace
@@ -32,7 +33,7 @@ import os
 import logging
 logger = logging.getLogger('dam')
 
-import settings
+import dam.settings as settings
 from operator import and_, or_
 
 @login_required
@@ -120,9 +121,9 @@ def delete_watermark(request):
     return HttpResponse(simplejson.dumps({'success': True}))  
 
 def get_variant_url(request, item_ID, variant_name):
-    from mprocessor.storage import Storage
-    from django.views.generic.simple import redirect_to
-    
+    from dam.mprocessor.storage import Storage
+
+
     try:
         workspace = request.session['workspace']
         storage = Storage()
@@ -142,7 +143,7 @@ def get_variant_url(request, item_ID, variant_name):
 #        if not url:
 #            url = settings.INPROGRESS
         logger.debug('url %s'%url)
-        return redirect_to(request, url)
+        return RedirectView.as_view(url={'url': '/%(url)s'})
     except Exception, ex:
         logger.exception(ex)
         raise ex 
@@ -151,7 +152,7 @@ def get_variant_url(request, item_ID, variant_name):
 #@login_required
 def get_resource(request, resource_name):
     from django.views.static import serve
-    from settings import MPROCESSOR_STORAGE
+    from dam.settings import MPROCESSOR_STORAGE
     download = request.GET.get('download')
     response = serve(request, resource_name, document_root = MPROCESSOR_STORAGE)
     if download: # downloading of single resources from subpanel on the right   

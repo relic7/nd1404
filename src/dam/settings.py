@@ -17,7 +17,7 @@
 ###############################################################################
 #==============================================================================
 #
-from application.settings import SECRET, MAIN_WORKSPACE_ID, NOTREDAM_ADDRESS, USER_ID
+#from application.settings import SECRET, MAIN_WORKSPACE_ID, NOTREDAM_ADDRESS, USER_ID
 
 import os.path, os
 import sys
