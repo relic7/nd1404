@@ -26,7 +26,7 @@ from django.forms.util import ErrorDict
 import json as simplejson
 import logging
 logger = logging.getLogger('dam')
-from dam.api.decorators import InvalidAPIKeyOrUserId
+
 from models import  Secret,  Application
 from dam.settings import SAFE_MODE
 import hashlib
