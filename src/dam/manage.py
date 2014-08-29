@@ -10,6 +10,8 @@ from django.core.management.commands.syncdb import Command
 
 from kb import init_kb
 import sys,os
+sys.path.insert(0,'/home/johnb/vm/ND14/src/dam')
+sys.path.insert(1,'/home/johnb/vm/ND14/src')
 sys.path.append(os.path.dirname(__file__))
 
 
@@ -34,7 +36,7 @@ Command.handle_noargs = handle_noargs
 # from django.core.management import execute_manager
 try:
 
-    import dam.settings # Assumed to be in the same directory.
+    import settings # Assumed to be in the same directory.
 except ImportError:
     import sys
     print 'FAIL'
