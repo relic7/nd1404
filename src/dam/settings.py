@@ -493,31 +493,31 @@ LOGGING = {
 ## -- DEBUG TOOLBAR CONFIGS -- ##
 #################################
 #
-def custom_show_toolbar(request):
-    """ Only show the debug toolbar to users with the superuser flag. """
-    # return request.user.is_superuser
-    return
-
-DEBUG_TOOLBAR_CONFIG = {
-    'SHOW_TOOLBAR_CALLBACK': 'dam.settings.custom_show_toolbar',
-    'INSERT_BEFORE': 'body',
-    'SHOW_TEMPLATE_CONTEXT': True,
-    'ENABLE_STACKTRACES': True,
-    'DISABLE_PANELS': True,
-}
-
-DEBUG_TOOLBAR_PANELS = (
-    #'debug_toolbar_user_panel.panels.UserPanel',
-    'debug_toolbar.panels.versions.VersionsPanel',
-    'debug_toolbar.panels.timer.TimerPanel',
-    #'debug_toolbar.panels.settings.SettingsPanel',
-    'debug_toolbar.panels.headers.HeadersPanel',
-    'debug_toolbar.panels.request.RequestPanel',
-    'debug_toolbar.panels.templates.TemplatesPanel',
-    'debug_toolbar.panels.sql.SQLPanel',
-    'debug_toolbar.panels.signals.SignalsPanel',
-    #'debug_toolbar.panels.logger.LoggingPanel',
-)
+# def custom_show_toolbar(request):
+#     """ Only show the debug toolbar to users with the superuser flag. """
+#     # return request.user.is_superuser
+#     return
+#
+# DEBUG_TOOLBAR_CONFIG = {
+#     'SHOW_TOOLBAR_CALLBACK': 'dam.settings.custom_show_toolbar',
+#     'INSERT_BEFORE': 'body',
+#     'SHOW_TEMPLATE_CONTEXT': True,
+#     'ENABLE_STACKTRACES': True,
+#     'DISABLE_PANELS': True,
+# }
+#
+# DEBUG_TOOLBAR_PANELS = (
+#     #'debug_toolbar_user_panel.panels.UserPanel',
+#     'debug_toolbar.panels.versions.VersionsPanel',
+#     'debug_toolbar.panels.timer.TimerPanel',
+#     #'debug_toolbar.panels.settings.SettingsPanel',
+#     'debug_toolbar.panels.headers.HeadersPanel',
+#     'debug_toolbar.panels.request.RequestPanel',
+#     'debug_toolbar.panels.templates.TemplatesPanel',
+#     'debug_toolbar.panels.sql.SQLPanel',
+#     'debug_toolbar.panels.signals.SignalsPanel',
+#     #'debug_toolbar.panels.logger.LoggingPanel',
+# )
 
 #
 #==============================================================================
