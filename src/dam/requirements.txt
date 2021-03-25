@@ -6,7 +6,7 @@ MarkupSafe==0.18
 MySQL-python==1.2.3
 PAM==0.4.2
 Pillow==2.3.0
-PyYAML==3.10
+PyYAML==5.4
 SQLAlchemy==0.8.4
 SecretStorage==2.0.0
 South==0.7.5
