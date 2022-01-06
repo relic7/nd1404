@@ -19,7 +19,7 @@ anyjson==0.3.3
 apt-xapian-index==0.45
 argparse==1.2.1
 billiard==3.3.0.15
-celery==3.1.6
+celery==5.2.2
 chardet==2.0.1
 cl==0.0.3
 cloud-init==0.7.5
